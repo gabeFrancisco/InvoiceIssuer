@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "rdarj5Y2gWlI4cao3wR+2MsALEZwo4I3ulCOD+Y0Z2hp5Qct4d4RmvPP6dXPfiT2tz8hA1G9zfTqlZHqnGQkOQ==",
+  "success": true,
+  "projectFilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/gabrielfrank/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/gabrielfrank/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
