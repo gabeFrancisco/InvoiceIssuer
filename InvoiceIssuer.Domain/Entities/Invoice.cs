@@ -7,7 +7,8 @@ namespace InvoiceIssuer.Domain.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public Taker Taker { get; set; }
-        public ServiceType ServiceType { get; set; }
+        public Guid ServiceTypeId { get; set; }
+        public virtual ServiceType ServiceType { get; set; }
         public DateTime Date { get; set; }
         public decimal TotalValue { get; set; }
         public decimal TaxValue { get; set; }

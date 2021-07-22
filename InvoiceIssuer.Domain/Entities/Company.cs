@@ -1,3 +1,5 @@
+using System;
+
 namespace InvoiceIssuer.Domain.Entities
 {
     public abstract class Company : BaseEntity
@@ -8,6 +10,7 @@ namespace InvoiceIssuer.Domain.Entities
         public Address Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public CompanyType CompanyType { get; set; }
+        public Guid CompanyTypeId { get; set; }
+        public virtual CompanyType CompanyType { get; set; }
     }
 }
