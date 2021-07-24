@@ -12,5 +12,6 @@ namespace InvoiceIssuer.Repository.Context
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Provider> Providers { get; set; }
         public DbSet<ServiceType> ServiceTypes { get; set; }
+        public DbSet<CompanyType> CompanyTypes { get; set; }
     }
 }
