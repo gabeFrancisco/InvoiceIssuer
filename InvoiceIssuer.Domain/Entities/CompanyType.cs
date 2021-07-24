@@ -9,6 +9,8 @@ namespace InvoiceIssuer.Domain.Entities
         public TaxClassEnum TaxClass { get; set; }
         private decimal _taxRate;
         public decimal TaxRate
+        
+        //TODO - Reimplement TaxRate business logic for database entrance
         {
             get { return _taxRate; }
             set

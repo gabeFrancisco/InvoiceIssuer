@@ -1675,6 +1675,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "InvoiceIssuer.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/InvoiceIssuer.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/InvoiceIssuer.Domain.dll": {}
+        }
       }
     }
   },
@@ -5963,10 +5973,16 @@
         "system.xml.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
+    },
+    "InvoiceIssuer.Domain/1.0.0": {
+      "type": "project",
+      "path": "../InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
+      "msbuildProject": "../InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "InvoiceIssuer.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.17",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.17",
       "Microsoft.EntityFrameworkCore.Proxies >= 3.1.17",
@@ -5998,7 +6014,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj": {
+              "projectPath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
