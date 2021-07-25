@@ -10,7 +10,7 @@ namespace InvoiceIssuer.Domain.Entities
         private DateTime? _createdAt;
         public DateTime? CreatedAt
         {
-            get { return this.CreatedAt; }
+            get { return this._createdAt; }
             set { _createdAt = (value == null ? DateTime.UtcNow : value); }
         }
         public DateTime? UpdatedAt { get; set; }

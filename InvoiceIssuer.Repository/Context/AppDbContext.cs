@@ -7,7 +7,7 @@ namespace InvoiceIssuer.Repository.Context
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Taker> Takers { get; set; }
@@ -57,8 +57,9 @@ namespace InvoiceIssuer.Repository.Context
                     Name = "Large Company",
                     Description = "Large company with more branches",
                     TaxRate = 7.5M
-                }
-            );
+                });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -11,7 +11,8 @@ namespace InvoiceIssuer.Repository.Config
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(30);
             
             builder.Property(x => x.Description)
                 .IsRequired();

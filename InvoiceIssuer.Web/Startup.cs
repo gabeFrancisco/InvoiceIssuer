@@ -26,10 +26,10 @@ namespace InvoiceIssuer.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            
             services.AddDbContext<AppDbContext>(options =>
                options.UseLazyLoadingProxies()
-               .UseMySql(Configuration.GetConnectionString("MySql"),
-               m => m.MigrationsAssembly("InvoiceIssuer.Repository")));
+               .UseMySql(Configuration.GetConnectionString("MySql")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
