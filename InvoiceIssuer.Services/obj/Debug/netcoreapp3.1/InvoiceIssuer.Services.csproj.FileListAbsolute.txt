@@ -1,9 +1,0 @@
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/bin/Debug/netcoreapp3.1/InvoiceIssuer.Services.deps.json
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/bin/Debug/netcoreapp3.1/InvoiceIssuer.Services.dll
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/bin/Debug/netcoreapp3.1/InvoiceIssuer.Services.pdb
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/obj/Debug/netcoreapp3.1/InvoiceIssuer.Services.csprojAssemblyReference.cache
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/obj/Debug/netcoreapp3.1/InvoiceIssuer.Services.AssemblyInfoInputs.cache
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/obj/Debug/netcoreapp3.1/InvoiceIssuer.Services.AssemblyInfo.cs
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/obj/Debug/netcoreapp3.1/InvoiceIssuer.Services.csproj.CoreCompileInputs.cache
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/obj/Debug/netcoreapp3.1/InvoiceIssuer.Services.dll
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/obj/Debug/netcoreapp3.1/InvoiceIssuer.Services.pdb
