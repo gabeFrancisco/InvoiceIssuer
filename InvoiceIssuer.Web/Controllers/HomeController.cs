@@ -24,6 +24,7 @@ namespace InvoiceIssuer.Web.Controllers
             _providerRepository = providerRepository;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -32,18 +33,23 @@ namespace InvoiceIssuer.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Index([FromForm] LoginViewModel viewModel)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             
             var provider = new Provider();
             provider = await _providerRepository.GetByCI(viewModel.CI);
             string hashPassword = HashEncrypt.GenerateHash(viewModel.Password);
 
-            if(provider == null || hashPassword != provider.Password.ToLower())
-                return Unauthorized("CI or password incorrect!");
-            
+            if (provider == null || hashPassword != provider.Password.ToLower())
+            {
+                ViewBag.Error = "CI or Password incorrect. Check again!";
+                return View(nameof(Index));
+            }
+
             else
+            {
                 return new ContentResult() { Content = provider.ToString() };
+            }
         }
 
         public IActionResult Privacy()
