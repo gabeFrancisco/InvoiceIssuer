@@ -12,11 +12,13 @@ namespace InvoiceIssuer.Repository.Config
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(50)
+                .IsFixedLength();
             
             builder.Property(x => x.Description)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(200)
+                .IsFixedLength();
         }
     }
 }

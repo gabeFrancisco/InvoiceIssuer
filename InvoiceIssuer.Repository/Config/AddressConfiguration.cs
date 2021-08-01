@@ -12,30 +12,37 @@ namespace InvoiceIssuer.Repository.Config
 
             builder.Property(x => x.Road)
                 .IsRequired()
-                .HasMaxLength(70);
+                .HasMaxLength(70)
+                .IsFixedLength();
             
             builder.Property(x => x.Number)
                 .IsRequired()
-                .HasMaxLength(10);
+                .HasMaxLength(10)
+                .IsFixedLength();
 
             builder.Property(x => x.Complement)
-                .HasMaxLength(20);
+                .HasMaxLength(20)
+                .IsFixedLength();
             
             builder.Property(x => x.Block)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(30)
+                .IsFixedLength();
             
             builder.Property(x => x.City)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(30)
+                .IsFixedLength();
 
             builder.Property(x => x.State)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(30)
+                .IsFixedLength();
             
             builder.Property(x => x.PostalCode)
                 .IsRequired()
-                .HasMaxLength(10);
+                .HasMaxLength(10)
+                .IsFixedLength();
         }
     }
 }
