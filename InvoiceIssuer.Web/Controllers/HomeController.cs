@@ -36,7 +36,7 @@ namespace InvoiceIssuer.Web.Controllers
                 return BadRequest(ModelState);
             
             var provider = new Provider();
-            provider = await _providerRepository.GetByCI(Convert.ToInt32(viewModel.CI));
+            provider = await _providerRepository.GetByCI(viewModel.CI);
             string hashPassword = HashEncrypt.GenerateHash(viewModel.Password);
 
             if(provider == null || hashPassword != provider.Password.ToLower())

@@ -10,6 +10,6 @@ namespace InvoiceIssuer.Repository.Repositories
     public class ProviderRepository : BaseRepository<Provider>, IProviderRepository
     {
         public ProviderRepository(AppDbContext context) : base(context) { }
-        public async Task<Provider> GetByCI(int CI) => await _context.Providers.SingleOrDefaultAsync(x => x.CI.Equals(CI));
+        public async Task<Provider> GetByCI(string CI) => await _context.Providers.SingleOrDefaultAsync(x => x.CI.Equals(CI));
     }
 }

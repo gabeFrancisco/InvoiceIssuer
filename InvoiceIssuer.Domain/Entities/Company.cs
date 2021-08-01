@@ -6,7 +6,7 @@ namespace InvoiceIssuer.Domain.Entities
     public abstract class Company : BaseEntity
     {
         //CI stands for "Company Identifier", a unique 7 digit number
-        public int CI { get; set; } 
+        public string CI { get; set; } 
         public string ComercialName { get; set; }
         public Guid AddressId { get; set; }
         public virtual Address Address { get; set; }

@@ -5,6 +5,6 @@ namespace InvoiceIssuer.Domain.Interfaces
 {
     public interface IProviderRepository : IBaseRepository<Provider>
     {
-        Task<Provider> GetByCI(int CI);
+        Task<Provider> GetByCI(string CI);
     }
 }
