@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InvoiceIssuer.Domain.Interfaces;
 using InvoiceIssuer.Repository.Context;
+using InvoiceIssuer.Repository.Repositories;
+using InvoiceIssuer.Services.Sessions;
+using InvoiceIssuer.Web.Sessions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +34,12 @@ namespace InvoiceIssuer.Web
             services.AddDbContext<AppDbContext>(options =>
                options.UseLazyLoadingProxies()
                .UseMySql(Configuration.GetConnectionString("MySql")));
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<LoginStorage>();
+            services.AddScoped<SessionStorage>();
+            
+            services.AddScoped<IProviderRepository, ProviderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
