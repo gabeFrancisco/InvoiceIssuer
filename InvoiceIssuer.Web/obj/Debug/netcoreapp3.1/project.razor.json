@@ -14407,8 +14407,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_Dashboard.cshtml",
+      "TargetPath": "Views\\Shared\\_Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Info.cshtml",
+      "TargetPath": "Views\\Dashboard\\Info.cshtml",
       "FileKind": "mvc"
     },
     {

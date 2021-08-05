@@ -48,7 +48,8 @@ namespace InvoiceIssuer.Web.Controllers
 
             else
             {
-                return new ContentResult() { Content = provider.ToString() };
+                _loginStorage.SignIn(provider);
+                return RedirectToAction("Info", "Dashboard");
             }
         }
 
