@@ -1,3 +1,4 @@
+using System;
 using InvoiceIssuer.Web.Sessions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,14 +14,28 @@ namespace InvoiceIssuer.Web.Controllers
         [HttpGet]
         public IActionResult Info()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public IActionResult Logout()
         {
-            _loginStorage.Exit();
-            TempData["Logout"] = "Signed out successfully from the system!";
-            return RedirectToAction("Index", "Home");
+            if (_loginStorage.GetProvider() != null)
+            {
+                _loginStorage.Exit();
+                TempData["Logout"] = "Signed out successfully from the system!";
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }
