@@ -18,13 +18,14 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary box-shadow navbar-dashboard">
-      <div>
+      <div class="container">
         <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">Invoice Issuer</a>
       </div>
       <div>
         <ul class="navbar-nav flex-grow-1">
           <li class="nav-link text-light">
-            Welcome @session.GetProvider().ComercialName
+            @* Welcome @session.GetProvider().ComercialName *@
+            COMPANY NAME
           </li>
           <li class="nav-item">
             <a class="nav-link" asp-controller="Dashboard" asp-action="Logout" style="color: red">
@@ -38,14 +39,29 @@
   <div class="content-wrapper">
     <aside class="sidebar text-light">
       <ul>
-        <li>Home</li>
+        <li>
+          <i class="fas fa-home fa-fw"></i>
+          <a>Home</a>
+        </li>
+        <li>
+          <i class="fas fa-file-invoice-dollar fa-fw"></i>
+          <a>Invoices</a>
+        </li>
+        <li>
+          <i class="fas fa-user-tie fa-fw"></i>
+          <a>Customers</a>
+        </li>
+        <li>
+          <i class="fas fa-cog fa-fw"></i>
+          <a>Settings</a>
+        </li>
       </ul>
     </aside>
     <main class="dashboard-main">
       @RenderBody()
     </main>
   </div>
-
+  <script src="https://kit.fontawesome.com/f39c6187b7.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
