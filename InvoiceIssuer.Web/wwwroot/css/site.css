@@ -1,10 +1,5 @@
 @keyframes MenuLeftBorder {
   0% {
-    border-top: 1px solid rgba(255, 255, 255, 0.061);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    list-style-type: none;
-    height: 100%;
-    padding: 10px 0;
     border-left: 0px solid white;
   }
   100% {
@@ -39,6 +34,10 @@ a.navbar-brand {
 /* Provide sufficient contrast against white background */
 a {
   color: #002856;
+}
+
+.logo{
+  margin-left: 40px;
 }
 
 .btn-primary {
@@ -116,7 +115,7 @@ html {
 .sidebar ul li{
   list-style-type: none;
   padding: 10px 20px;
-  font-weight: bolder;
+  font-weight: 400;
   font-size: 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.109);
 }
@@ -124,6 +123,7 @@ html {
 .sidebar ul li:hover{
   background-color: #011d3e;
   cursor: pointer;
+  animation: MenuLeftBorder 0.4s forwards;
 }
 
 .dashboard-main {
@@ -145,5 +145,17 @@ html {
 .dashboard-menu ul li {
   list-style-type: none;
   margin-top: 2px;
-  margin-right: 20px;;
+  margin-right: 20px;
+}
+
+.company-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.company-logo img{
+  width: 100px;
+  height: auto;
+  border-radius: 20px;
 }
