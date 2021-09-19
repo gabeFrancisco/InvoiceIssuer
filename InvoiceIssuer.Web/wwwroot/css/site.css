@@ -32,9 +32,6 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
-a {
-  color: #002856;
-}
 
 .logo{
   margin-left: 40px;
@@ -42,15 +39,11 @@ a {
 
 .btn-primary {
   color: #fff;
-  background-color: #002856;
-  border-color: #002856;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #012f64;
-  border-color: #012f64;
 }
 
 /* Sticky footer styles
@@ -99,12 +92,14 @@ html {
   flex-direction: row;
 }
 
+#logout{
+  margin-right: 10px;
+}
+
 .sidebar {  
   width: 15vw;
-  background-color: #002856;
   top: 0;
   left: 0;
-  border-right: 3px double white;
   height: 100vh;
 }
 
@@ -120,8 +115,13 @@ html {
   border-bottom: 1px solid rgba(255, 255, 255, 0.109);
 }
 
+.sidebar ul li a{
+  text-decoration: none;
+  color: #fff;
+}
+
 .sidebar ul li:hover{
-  background-color: #011d3e;
+  background-color: #365a84;
   cursor: pointer;
   animation: MenuLeftBorder 0.4s forwards;
 }
@@ -131,21 +131,27 @@ html {
 }
 
 .dashboard-menu {
-  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 2px 10px;
+  height: 45px;
   background-color: #d7e3f1;
-  border-top: 3px double white;
+  border-top: 3px double rgba(255, 255, 255, 0);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .dashboard-menu ul {
   display: flex;
   flex-direction: row;
+  padding: 0;
 }
 
 .dashboard-menu ul li {
   list-style-type: none;
   margin-top: 2px;
-  margin-right: 20px;
+  margin-right: 7px;
 }
 
 .company-info{

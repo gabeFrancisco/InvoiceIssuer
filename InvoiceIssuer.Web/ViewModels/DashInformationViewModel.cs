@@ -4,6 +4,6 @@ namespace InvoiceIssuer.Web.ViewModels
 {
     public class DashInformationViewModel
     {
-        public Taker Taker { get; set; }
+        public Provider Provider { get; set; }
     }
 }

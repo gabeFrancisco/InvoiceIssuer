@@ -40,6 +40,7 @@ namespace InvoiceIssuer.Web
             services.AddScoped<SessionStorage>();
 
             services.AddScoped<IProviderRepository, ProviderRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
 
             services.AddSession(options =>
             {

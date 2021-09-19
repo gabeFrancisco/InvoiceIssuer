@@ -3,13 +3,50 @@
 	Layout = "_Dashboard";
 }
 
-<div class="dashboard-menu mb-3">
+<div class="dashboard-menu pt-1 bg-light">
 	<ul>
-		<li>+ New Invoice</li>
-		<li>Edit Invoice</li>
-		<li>Delete Invoice</li>
+		<li><button class="btn btn-success btn-sm" type="submit"><i class="fas fa-plus"></i> New    </button></li>
+		<li><button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-edit"></i> Edit</button></li>
+		<li><button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i> Delete</button></li>
 	</ul>
-	<div class="card m-2">
-
-	</div>
+	<form class="d-flex">
+		<input class="form-control form-control-sm mr-2" type="input" placeholder="Search invoice...">
+		<button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-search"></i></button>
+	</form>
 </div>
+<table class="table table-sm table-hover">
+	<thead class="bg-light">
+		<tr>
+			<th scope="col">Type</th>
+			<th scope="col">Column heading</th>
+			<th scope="col">Column heading</th>
+			<th scope="col">Column heading</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+			<td>Column content</td>
+			<td>Column content</td>
+			<td>Column content</td>
+		</tr>
+		<tr>
+			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+			<td>Column content</td>
+			<td>Column content</td>
+			<td>Column content</td>
+		</tr>
+		<tr>
+			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+			<td>Column content</td>
+			<td>Column content</td>
+			<td>Column content</td>
+		</tr>
+		<tr>
+			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+			<td>Column content</td>
+			<td>Column content</td>
+			<td>Column content</td>
+		</tr>
+	</tbody>
+</table>
