@@ -3,14 +3,16 @@ using System;
 using InvoiceIssuer.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InvoiceIssuer.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210919014544_InvoiceIntId")]
+    partial class InvoiceIntId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,32 +109,32 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d478155c-b418-40fb-a004-990d1f1b2133"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(7055),
+                            Id = new Guid("5d053612-1a3c-4065-8532-86ecd9b0a642"),
+                            CreatedAt = new DateTime(2021, 9, 19, 1, 45, 44, 415, DateTimeKind.Utc).AddTicks(9020),
                             Description = "This type of company is free from tax applications",
                             Name = "Individual Business",
                             TaxRate = 0.0m
                         },
                         new
                         {
-                            Id = new Guid("dcd648fa-ff87-4dc9-89ca-67ce867901dd"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(9408),
+                            Id = new Guid("3129b6bd-1b66-4462-b6bd-2249480db04d"),
+                            CreatedAt = new DateTime(2021, 9, 19, 1, 45, 44, 416, DateTimeKind.Utc).AddTicks(1712),
                             Description = "Small company that is beginning",
                             Name = "Small Company",
                             TaxRate = 2.5m
                         },
                         new
                         {
-                            Id = new Guid("82fa412c-8fa4-43b2-af0d-4cc1f2fd34d4"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(9470),
+                            Id = new Guid("ab794eec-8984-4b90-ba39-ebdebf4d9a74"),
+                            CreatedAt = new DateTime(2021, 9, 19, 1, 45, 44, 416, DateTimeKind.Utc).AddTicks(1864),
                             Description = "Mid-port company",
                             Name = "Medium Company",
                             TaxRate = 4.5m
                         },
                         new
                         {
-                            Id = new Guid("06400ac3-acd0-42fc-8866-c85b481eceb4"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(9495),
+                            Id = new Guid("5fdd9e0e-75ce-4194-9a22-377554406b99"),
+                            CreatedAt = new DateTime(2021, 9, 19, 1, 45, 44, 416, DateTimeKind.Utc).AddTicks(1889),
                             Description = "Large company with more branches",
                             Name = "Large Company",
                             TaxRate = 7.5m
@@ -141,9 +143,9 @@ namespace InvoiceIssuer.Repository.Migrations
 
             modelBuilder.Entity("InvoiceIssuer.Domain.Entities.Invoice", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Number")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -155,10 +157,7 @@ namespace InvoiceIssuer.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("ProviderId")
+                    b.Property<Guid>("Id")
                         .HasColumnType("char(36)");
 
                     b.Property<Guid>("ServiceTypeId")
@@ -181,9 +180,7 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProviderId");
+                    b.HasKey("Number");
 
                     b.HasIndex("ServiceTypeId");
 
@@ -271,15 +268,6 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ServiceTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("1015c5c0-b4d7-4024-86ea-6a262924f6c5"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 272, DateTimeKind.Utc).AddTicks(1065),
-                            Description = "Activities and plannings that includes software development, management and project architecture",
-                            Name = "Software Development"
-                        });
                 });
 
             modelBuilder.Entity("InvoiceIssuer.Domain.Entities.Taker", b =>
@@ -327,12 +315,6 @@ namespace InvoiceIssuer.Repository.Migrations
 
             modelBuilder.Entity("InvoiceIssuer.Domain.Entities.Invoice", b =>
                 {
-                    b.HasOne("InvoiceIssuer.Domain.Entities.Provider", "Provider")
-                        .WithMany()
-                        .HasForeignKey("ProviderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("InvoiceIssuer.Domain.Entities.ServiceType", "ServiceType")
                         .WithMany()
                         .HasForeignKey("ServiceTypeId")

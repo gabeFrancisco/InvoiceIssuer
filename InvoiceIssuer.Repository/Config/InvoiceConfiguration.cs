@@ -8,7 +8,7 @@ namespace InvoiceIssuer.Repository.Config
     {
         public void Configure(EntityTypeBuilder<Invoice> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => x.Id); //GUID
 
             builder.Property(x => x.Title)
                 .IsRequired()
@@ -25,8 +25,12 @@ namespace InvoiceIssuer.Repository.Config
 
             builder.Property(x => x.TaxValue)
                 .IsRequired();
+
+            builder.Property(x => x.Number)
+                .IsRequired();
             
             builder.HasOne(x => x.Taker);
+            builder.HasOne(x => x.Provider);
             builder.HasOne(x => x.ServiceType);
         }
     }

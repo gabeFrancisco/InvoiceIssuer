@@ -5,7 +5,7 @@
 
 <div class="dashboard-menu pt-1 bg-light">
 	<ul>
-		<li><button class="btn btn-success btn-sm" type="submit"><i class="fas fa-plus"></i> New    </button></li>
+		<li><button class="btn btn-success btn-sm" type="submit"><i class="fas fa-plus"></i> New </button></li>
 		<li><button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-edit"></i> Edit</button></li>
 		<li><button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i> Delete</button></li>
 	</ul>
@@ -17,36 +17,23 @@
 <table class="table table-sm table-hover">
 	<thead class="bg-light">
 		<tr>
-			<th scope="col">Type</th>
-			<th scope="col">Column heading</th>
-			<th scope="col">Column heading</th>
-			<th scope="col">Column heading</th>
+			<th scope="col">@Html.DisplayNameFor(model => model.Invoice.Number)</th>
+			<th scope="col">@Html.DisplayNameFor(model => model.Invoice.Taker)</th>
+			<th scope="col">@Html.DisplayNameFor(model => model.Invoice.Title)</th>
+			<th scope="col">Invoice Value</th>
 		</tr>
 	</thead>
-	<tbody>
-		<tr>
-			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-			<td>Column content</td>
-			<td>Column content</td>
-			<td>Column content</td>
-		</tr>
-		<tr>
-			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-			<td>Column content</td>
-			<td>Column content</td>
-			<td>Column content</td>
-		</tr>
-		<tr>
-			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-			<td>Column content</td>
-			<td>Column content</td>
-			<td>Column content</td>
-		</tr>
-		<tr>
-			<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-			<td>Column content</td>
-			<td>Column content</td>
-			<td>Column content</td>
-		</tr>
-	</tbody>
+	@foreach (var invoice in Model.Invoices.OrderBy(model => model.Number))
+	{
+		<tbody>
+			<tr>
+				<td>@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)</td>
+				<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
+				<td>@Html.DisplayFor(model => invoice.Title)</td>
+				<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
+			</tr>
+		</tbody>
+	}
+
+
 </table>

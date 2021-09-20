@@ -13,13 +13,16 @@ namespace InvoiceIssuer.Web.Controllers
         private readonly LoginStorage _loginStorage;
         private readonly IProviderRepository _providerRepository;
         private readonly IAddressRepository _addressRepository;
+        private readonly IInvoiceRepository _invoiceRepository;
         public DashboardController(LoginStorage loginStorage,
                                    IProviderRepository providerRepository,
-                                   IAddressRepository addressRepository)
+                                   IAddressRepository addressRepository,
+                                   IInvoiceRepository invoiceRepository)
         {
             _loginStorage = loginStorage;
             _providerRepository = providerRepository;
             _addressRepository = addressRepository;
+            _invoiceRepository = invoiceRepository;
         }
         [HttpGet]
         public async Task<IActionResult> Info()
@@ -46,8 +49,10 @@ namespace InvoiceIssuer.Web.Controllers
         public async Task<IActionResult> Invoices()
         {
             try
-            {
-                return View();
+            {   
+                DashInformationViewModel dashInformationViewModel = new DashInformationViewModel();
+                dashInformationViewModel.Invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
+                return View(dashInformationViewModel);
             }
             catch (Exception)
             {

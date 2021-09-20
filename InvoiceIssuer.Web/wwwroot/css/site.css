@@ -121,13 +121,14 @@ html {
 }
 
 .sidebar ul li:hover{
-  background-color: #365a84;
+  background-color: #2f5480;
   cursor: pointer;
   animation: MenuLeftBorder 0.4s forwards;
 }
 
 .dashboard-main {
   width: 85vw;
+  padding: 5px;
 }
 
 .dashboard-menu {

@@ -59,6 +59,16 @@ namespace InvoiceIssuer.Repository.Context
                     TaxRate = 7.5M
                 });
 
+            modelBuilder.Entity<ServiceType>().HasData(
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Software Development",
+                    Description = "Activities and plannings that includes software development, management and project architecture"
+                }
+            );
+
             base.OnModelCreating(modelBuilder);
         }
     }
