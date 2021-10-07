@@ -100,7 +100,7 @@ html {
   width: 15vw;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .sidebar ul{
@@ -121,14 +121,13 @@ html {
 }
 
 .sidebar ul li:hover{
-  background-color: #2f5480;
+  background-color: #325d88;
   cursor: pointer;
   animation: MenuLeftBorder 0.4s forwards;
 }
 
 .dashboard-main {
   width: 85vw;
-  padding: 5px;
 }
 
 .dashboard-menu {
@@ -140,7 +139,6 @@ html {
   height: 45px;
   background-color: #d7e3f1;
   border-top: 3px double rgba(255, 255, 255, 0);
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .dashboard-menu ul {
@@ -165,4 +163,12 @@ html {
   width: 100px;
   height: auto;
   border-radius: 20px;
+}
+
+.invoice-table{
+  padding: 15px;
+}
+
+.invoice-form{
+  margin: 30px 70px;
 }

@@ -51,7 +51,6 @@
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/InvoiceIssuer.Web.TagHelpers.output.cache
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/InvoiceIssuer.Web.RazorCoreGenerate.cache
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Dashboard/Info.cshtml.g.cs
-/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Dashboard/Invoices.cshtml.g.cs
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
@@ -69,3 +68,5 @@
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/InvoiceIssuer.Web.dll
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/InvoiceIssuer.Web.pdb
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/InvoiceIssuer.Web.genruntimeconfig.cache
+/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Invoices/New.cshtml.g.cs
+/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Invoices/List.cshtml.g.cs

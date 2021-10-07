@@ -14402,6 +14402,11 @@
   "RootNamespace": "InvoiceIssuer.Web",
   "Documents": [
     {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/List.cshtml",
+      "TargetPath": "Views\\Invoices\\List.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -14427,8 +14432,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Invoices.cshtml",
-      "TargetPath": "Views\\Dashboard\\Invoices.cshtml",
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/New.cshtml",
+      "TargetPath": "Views\\Invoices\\New.cshtml",
       "FileKind": "mvc"
     },
     {
