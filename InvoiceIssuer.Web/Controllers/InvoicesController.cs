@@ -123,5 +123,11 @@ namespace InvoiceIssuer.Web.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpGet]
+        public IActionResult Invoice()
+        {
+            return View();
+        }
     }
 }

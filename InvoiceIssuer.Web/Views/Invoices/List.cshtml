@@ -27,12 +27,13 @@
 	<tbody>
 		@foreach (var invoice in Model.Invoices.OrderBy(model => model.Number))
 		{
-			<tr>
+			<tr onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { }))'">
 				<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
 				</td>
 				<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
 				<td>@Html.DisplayFor(model => invoice.Title)</td>
 				<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
+
 			</tr>
 		}
 	</tbody>

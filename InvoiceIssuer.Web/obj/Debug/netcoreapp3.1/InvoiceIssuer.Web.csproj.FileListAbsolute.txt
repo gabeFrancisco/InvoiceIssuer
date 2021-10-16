@@ -70,3 +70,4 @@
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/InvoiceIssuer.Web.genruntimeconfig.cache
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Invoices/New.cshtml.g.cs
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Invoices/List.cshtml.g.cs
+/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/Debug/netcoreapp3.1/Razor/Views/Invoices/Invoice.cshtml.g.cs
