@@ -5,7 +5,8 @@
 
 <div class="dashboard-menu pt-1 bg-light">
 	<ul>
-		<li><a asp-controller="Invoices" asp-action="New" class="btn btn-success btn-sm" type="submit"><i class="fas fa-plus"></i> New </a></li>
+		<li><a asp-controller="Invoices" asp-action="New" class="btn btn-success btn-sm" type="submit"><i
+					class="fas fa-plus"></i> New </a></li>
 		<li><button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-edit"></i> Edit</button></li>
 		<li><button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i> Delete</button></li>
 	</ul>
@@ -23,17 +24,18 @@
 			<th scope="col">Invoice Value</th>
 		</tr>
 	</thead>
-	@foreach (var invoice in Model.Invoices.OrderBy(model => model.Number))
-	{
-		<tbody>
+	<tbody>
+		@foreach (var invoice in Model.Invoices.OrderBy(model => model.Number))
+		{
 			<tr>
-				<td>@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)</td>
+				<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
+				</td>
 				<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
 				<td>@Html.DisplayFor(model => invoice.Title)</td>
 				<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
 			</tr>
-		</tbody>
-	}
+		}
+	</tbody>
 
 
 </table>

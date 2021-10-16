@@ -5,22 +5,21 @@
 <h3 class="text-center mt-3 mb-2">New Invoice</h3>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#taker" data-toggle="tab" role="tab">Taker</a>
+        <a class="nav-link active" href="#taker" data-toggle="tab">Taker</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#invoice" data-toggle="tab" role="tab">Invoice</a>
+        <a class="nav-link" href="#invoice" data-toggle="tab">Invoice</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#pricing" data-toggle="tab" role="tab">Pricing</a>
+        <a class="nav-link" href="#pricing" data-toggle="tab">Pricing</a>
     </li>
 </ul>
 <div class="invoice-form">
-
-
     <div class="mt-3">
-        <div class="tab-content">
-            <form method="POST">
-                <div role="tabpanel" class="tab-pane active" id="taker">
+        <form method="POST">
+            <div class="tab-content">
+
+                <div id="taker" class="tab-pane active">
                     <h5>Taker Information</h5>
                     <hr>
 
@@ -30,7 +29,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">CI</span>
                                 </div>
-                                <input type="text" class="form-control" id="ci" asp-for="Provider.CI">
+                                <input type="text" class="form-control" id="ci" asp-for="Taker.CI">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                 </div>
@@ -46,7 +45,7 @@
                                     <span class="input-group-text">Comercial Name</span>
                                 </div>
                                 <input type="text" class="form-control" id="comercialName"
-                                    asp-for="Provider.ComercialName">
+                                    asp-for="Taker.ComercialName">
                             </div>
                         </div>
                     </div>
@@ -56,7 +55,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Phone</span>
                                 </div>
-                                <input type="tel" class="form-control" id="phone" asp-for="Provider.Phone">
+                                <input type="tel" class="form-control" id="phone" asp-for="Taker.Phone">
                             </div>
 
                         </div>
@@ -65,7 +64,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">E-mail</span>
                                 </div>
-                                <input type="email" class="form-control" id="providerEmail" asp-for="Provider.Email">
+                                <input type="email" class="form-control" id="providerEmail" asp-for="Taker.Email">
                             </div>
                         </div>
                     </div>
@@ -113,7 +112,8 @@
                                     <span class="input-group-text">City</span>
                                 </div>
                                 <input type="text" class="form-control" id="city" asp-for="Address.City">
-                                <small class="form-text text-muted">City is not standardized and you can type any you want.</small>
+                                <small class="form-text text-muted">City is not standardized and you can type any you
+                                    want.</small>
                             </div>
                         </div>
                         <div class="col-3">
@@ -122,7 +122,8 @@
                                     <span class="input-group-text">State</span>
                                 </div>
                                 <input type="text" class="form-control" id="state" asp-for="Address.State">
-                                <small class="form-text text-muted">Same as above, you can type any state of your country.</small>
+                                <small class="form-text text-muted">Same as above, you can type any state of your
+                                    country.</small>
                             </div>
                         </div>
 
@@ -134,10 +135,24 @@
                                 <input type="text" class="form-control" id="postalCode" asp-for="Address.PostalCode">
                             </div>
                         </div>
+
+                        <div class="col-5">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Company Type</span>
+                                </div>
+                                <select class="form-select" id="companySelect" asp-for="CompanyType">
+                                    @foreach (var companyType in Model.CompanyTypes)
+                                    {
+                                        <option id="companyType">@companyType.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane active" id="invoice">
+                <div class="tab-pane" id="invoice">
                     <h5 class="mt-3">Invoice Information</h5>
                     <hr>
                     <div class="row">
@@ -146,16 +161,21 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Title</span>
                                 </div>
-                                <input type="text" class="form-control" id="comercialName">
+                                <input type="text" class="form-control" id="title" asp-for="Title">
                             </div>
                         </div>
                         <div class="col-5">
-                            <select class="form-select" id="exampleSelect1">
-                                @foreach (var serviceType in Model.ServiceTypes)
-                                {
-                                    <option id="serviceType" asp-for="ServiceType">@serviceType.Name</option>
-                                }
-                            </select>
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Service Type</span>
+                                </div>
+                                <select class="form-select" id="exampleSelect1" asp-for="ServiceType">
+                                    @foreach (var serviceType in Model.ServiceTypes)
+                                    {
+                                        <option id="serviceType">@serviceType.Name</option>
+                                    }
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -171,12 +191,13 @@
                     </div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane active" id="pricing">
+                <div class="tab tab-pane" id="pricing">
                     <h5>Pricing</h5>
-
+                    <hr/>
+                    
                     <div class="row">
                         <div class="col-4">
-                            <div class="input-group input-group-sm mb-4">
+                            <div class="input-group inp/ut-group-sm mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Price</span>
                                 </div>
@@ -185,10 +206,11 @@
                         </div>
                     </div>
 
-                    <div class="d-grid gap-4">
-                        <button class="btn btn-lg btn-primary" type="submit"><b>Issue!</b></button>
-                    </div>
-            </form>
-        </div>
+                </div>
+                <div class="d-grid gap-4 mt-4">
+                    <button class="btn btn-lg btn-primary" type="submit"><b>Issue!</b></button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

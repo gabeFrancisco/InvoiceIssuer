@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cUVkAmEArbzKaJ0w4lBSP6nsEhTWeKCAmHSWRQIm5puv6raIwo+M+CuhrTq11bN3C2TxyYz90jDXTolQds+qOw==",
+  "dgSpecHash": "zs/H1ABuN1VUT9NSOPSUtW/Hyw2Ryj+I6vBYDeKcwCTL9KZhCM8+prT0xqeYwVc1F26kD4jcD9v6FUe2OE6uNw==",
   "success": true,
   "projectFilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
   "expectedPackageFiles": [

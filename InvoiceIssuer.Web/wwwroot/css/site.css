@@ -172,3 +172,7 @@ html {
 .invoice-form{
   margin: 30px 70px;
 }
+
+tr:hover{
+  cursor: pointer;
+}

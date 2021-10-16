@@ -43,6 +43,7 @@ namespace InvoiceIssuer.Web
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IServiceTypeRepository, ServiceTypeRepository>();
+            services.AddScoped<ICompanyTypeRepository, CompanyTypeRepository>();
 
             services.AddSession(options =>
             {
