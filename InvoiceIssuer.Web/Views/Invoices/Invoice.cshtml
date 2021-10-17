@@ -1,30 +1,109 @@
+@model InvoiceIssuer.Web.ViewModels.InvoicesViewModel
 @{
-    Layout = "_Dashboard";
+    Layout = "_InvoicePreview";
 }
 
 <div class="m-4 p-4">
+    <div class="invoice-content">
+        <div class="invoice-preview-title">Service Invoice</div>
+        <div class="invoice-id">
+            <div class="blue-text"><b>Invoice Number: @Model.Invoice.Number / @Model.Invoice.Date.Year</b></div>
+            <div>Date: @Model.Invoice.Date</div>
+            <div>GUID: @Model.Invoice.Id</div>
+        </div>
+        <div class="content-row">
+            <div class="wrap-content">
+                <div class="blue-title">
+                    <span>PROVIDER</span>
+                </div>
+                <div class="company-data">
+                    <div class="m-2">
+                        <div><b>@Model.Provider.ComercialName</b></div>
+                        <div>CI: @Model.Provider.CI</div>
+                        <div>Comp. Type: @Model.Provider.CompanyType.Name</div>
+                        <div>@Model.Provider.Email</div>
+                        <div>Phone: @Model.Provider.Phone</div>
+                    </div>
+                    <div class="m-2">
+                        <div>@Model.Provider.Address.Road, @Model.Provider.Address.Number,
+                            @Model.Provider.Address.Complement</div>
+                        <div>@Model.Provider.Address.Block</div>
+                        <div>@Model.Provider.Address.City</div>
+                        <div>@Model.Provider.Address.State</div>
+                        <div>Postal Code: @Model.Provider.Address.PostalCode</div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-content">
+                <div class="blue-title">
+                    <span>TAKER</span>
+                </div>
+                <div class="taker-data">
+                    <div class="m-2">
+                        <div><b>@Model.Taker.ComercialName</b></div>
+                        <div>CI: @Model.Taker.CI</div>
+                        <div>Comp. Type: @Model.Taker.CompanyType.Name</div>
+                        <div>@Model.Taker.Email</div>
+                        <div>Phone: @Model.Taker.Phone</div>
+                    </div>
+                    <div class="m-2">
+                        <div>@Model.Taker.Address.Road, @Model.Taker.Address.Number,
+                            @Model.Taker.Address.Complement</div>
+                        <div>@Model.Taker.Address.Block</div>
+                        <div>@Model.Taker.Address.City</div>
+                        <div>@Model.Taker.Address.State</div>
+                        <div>Postal Code: @Model.Taker.Address.PostalCode</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blue-title">
+            <h4>Description</h4>
+        </div>
+        <div class="service-content">
+            <div class="content-row mt-4 mb-3">
+                <h5>Title: @Model.Invoice.Title</h5>
+                <h5>Service Type: @Model.Invoice.ServiceType.Name</h5>
+            </div>
+            <div class="service-description">
+                <p>@Model.Invoice.Description</p>
+            </div>
+        </div>
+        <div class="blue-title">
+            <h4>Pricing</h4>
+        </div>
 
-	@* <div class="company-info">
-		<div class="m-2">
-			<h2>@Model.Provider.ComercialName</h2>
-			<h5>CI nº @Model.Provider.CI</h5>
-			<h6>Company Type: @Model.Provider.CompanyType.Name</h6>
-			<div>E-mail: @Model.Provider.Email</div>
-			<div>Comercial Phone: @Model.Provider.Phone</div>
-		</div>
-		<div class="m-2">
-			<div>@Model.Provider.Address.Road, n° @Model.Provider.Address.Number, @Model.Provider.Address.Complement,
-				@Model.Provider.Address.Block</div>
-			<div>@Model.Provider.Address.City</div>
-			<div>State of @Model.Provider.Address.State</div>
-			<div>Postal code: @Model.Provider.Address.PostalCode</div>
-		</div>
-		<div class="company-logo">
-			<img src="~/assets/company.png" alt="Company Logo" />
-		</div>
-	</div>
-	<hr> *@
+        <div class="pricing-content">
 
-
-    <h4>Invoice Data</h4>
+            <div class="pricing-content mt-4">
+                <div class="content-row">
+                    <div>
+                        <div>Service price: </div>
+                    </div>
+                    <div>
+                        <div>@Model.Invoice.TotalValue.ToString("c2")</div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div>
+                        <div>Tax Rate: </div>
+                    </div>
+                    <div>
+                        <div>%@Model.Invoice.TaxValue.ToString("f2")</div>
+                    </div>
+                </div>
+                <hr />
+                <div class="content-row">
+                    <div>
+                        <h5 class="blue-text"><b>Total:</b></h5>
+                    </div>
+                    <div>
+                        <h5 class="blue-text"><b>@Model.Invoice.TotalValue.ToString("c2")</b></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-4"></div>
+    </div>
+</div>
 </div>

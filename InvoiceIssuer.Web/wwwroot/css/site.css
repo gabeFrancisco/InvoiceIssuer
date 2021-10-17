@@ -16,6 +16,22 @@
   }
 }
 
+@media print {
+  @page{
+    size: 210mm 297mm
+  }
+  
+  header, footer, aside{
+    display: none;
+  }
+
+  body{
+    zoom: 80%;
+  }
+
+  
+}
+
 header {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
@@ -33,7 +49,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 
-.logo{
+.logo {
   margin-left: 40px;
 }
 
@@ -92,22 +108,22 @@ html {
   flex-direction: row;
 }
 
-#logout{
+#logout {
   margin-right: 10px;
 }
 
-.sidebar {  
+.sidebar {
   width: 15vw;
   top: 0;
   left: 0;
   min-height: 100vh;
 }
 
-.sidebar ul{
+.sidebar ul {
   padding: 0;
 }
 
-.sidebar ul li{
+.sidebar ul li {
   list-style-type: none;
   padding: 10px 20px;
   font-weight: 400;
@@ -115,12 +131,12 @@ html {
   border-bottom: 1px solid rgba(255, 255, 255, 0.109);
 }
 
-.sidebar ul li a{
+.sidebar ul li a {
   text-decoration: none;
   color: #fff;
 }
 
-.sidebar ul li:hover{
+.sidebar ul li:hover {
   background-color: #325d88;
   cursor: pointer;
   animation: MenuLeftBorder 0.4s forwards;
@@ -153,26 +169,118 @@ html {
   margin-right: 7px;
 }
 
-.company-info{
+.company-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.company-logo img{
+.company-logo img {
   width: 100px;
   height: auto;
   border-radius: 20px;
 }
 
-.invoice-table{
+.invoice-table {
   padding: 15px;
 }
 
-.invoice-form{
+.invoice-form {
   margin: 30px 70px;
 }
 
-tr:hover{
+tr:hover {
   cursor: pointer;
+}
+
+.invoice-nav {
+  background-color: #325d88;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.invoice-content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #aaa;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.content-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.blue-text{
+  color: #325d88;
+}
+.invoice-id {
+  padding: 10px;
+  border: 1px #325d88 solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.invoice-preview-title {
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #325d88;
+  font-weight: bolder;
+  font-size: 25px;
+  text-align: center;
+  color: #eee;
+  width: 100%;
+}
+
+.invoice-number {
+  color: #9a1a1a;
+}
+
+.blue-title {
+  color: #eee;
+  background-color: #325d88;
+  padding: 10px;
+  text-align: center;
+}
+
+.blue-title-round{
+  color: #eee;
+  background-color: #325d88;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.wrap-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.company-data,
+.taker-data {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: 1px #325d88 solid;
+}
+
+.service-content, .pricing-content {
+  padding: 0px 30px 30px 30px;
+}
+
+.service-description {
+  padding: 10px;
+  border: 1px #aaa solid;
+  border-radius: 3px;
+}
+
+.pricing-content{
+  padding: 0px 30px 0px 30px;
 }

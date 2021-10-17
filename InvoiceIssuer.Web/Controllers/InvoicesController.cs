@@ -17,12 +17,14 @@ namespace InvoiceIssuer.Web.Controllers
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IServiceTypeRepository _serviceTypeRepository;
         private readonly ICompanyTypeRepository _companyTypeRepository;
+        private readonly ITakerRepository _takerRepository;
         public InvoicesController(LoginStorage loginStorage,
                                    IProviderRepository providerRepository,
                                    IAddressRepository addressRepository,
                                    IInvoiceRepository invoiceRepository,
                                    IServiceTypeRepository serviceTypeRepository,
-                                   ICompanyTypeRepository companyTypeRepository)
+                                   ICompanyTypeRepository companyTypeRepository,
+                                   ITakerRepository takerRepository)
         {
             _loginStorage = loginStorage;
             _providerRepository = providerRepository;
@@ -30,6 +32,7 @@ namespace InvoiceIssuer.Web.Controllers
             _invoiceRepository = invoiceRepository;
             _serviceTypeRepository = serviceTypeRepository;
             _companyTypeRepository = companyTypeRepository;
+            _takerRepository = takerRepository;
         }
 
         [HttpGet]
@@ -116,7 +119,12 @@ namespace InvoiceIssuer.Web.Controllers
 
                 await _invoiceRepository.Create(invoice);
 
-                return RedirectToAction("List", "Invoices");
+                //The viewModel is refilled again to redirect to the invoice read-only/printing view.
+                invoicesViewModel.Provider = invoice.Provider;
+                invoicesViewModel.Taker = invoice.Taker;
+                invoicesViewModel.Invoice = invoice;
+
+                return View("Invoice", invoicesViewModel);
             }
             catch (Exception ex)
             {
@@ -125,9 +133,22 @@ namespace InvoiceIssuer.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Invoice()
+        public async Task<IActionResult> GetInvoice([FromQuery] Guid invoiceGuid)
         {
-            return View();
+            try
+            {
+                InvoicesViewModel viewModel = new InvoicesViewModel();
+                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
+                viewModel.Invoice = invoice;
+                viewModel.Provider = _loginStorage.GetProvider();
+                viewModel.Taker = await _takerRepository.Read(invoice.TakerId);
+
+                return View("Invoice", viewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }
