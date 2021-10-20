@@ -2,6 +2,7 @@
 @{
     Layout = "_Dashboard";
 }
+
 <h3 class="text-center mt-3 mb-2">New Invoice</h3>
 <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -31,7 +32,7 @@
                                 </div>
                                 <input type="text" class="form-control" id="ci" asp-for="Taker.CI">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                    <button type="button" class="btn btn-primary" id="searchTakerBtn" onclick="getTakerData()"><i class="fas fa-search"></i></button>
                                 </div>
 
                                 <small id="ciHelp" class="form-text text-muted">You can press the "Search" button if
@@ -64,7 +65,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">E-mail</span>
                                 </div>
-                                <input type="email" class="form-control" id="providerEmail" asp-for="Taker.Email">
+                                <input type="email" class="form-control" id="takerEmail" asp-for="Taker.Email">
                             </div>
                         </div>
                     </div>
@@ -169,7 +170,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Service Type</span>
                                 </div>
-                                <select class="form-select" id="exampleSelect1" asp-for="ServiceType">
+                                <select class="form-select" id="serviceSelect" asp-for="ServiceType">
                                     @foreach (var serviceType in Model.ServiceTypes)
                                     {
                                         <option id="serviceType">@serviceType.Name</option>

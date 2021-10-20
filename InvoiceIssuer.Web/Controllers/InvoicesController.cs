@@ -150,5 +150,13 @@ namespace InvoiceIssuer.Web.Controllers
                 return BadRequest(ex);
             }
         }
+        [Route("/Invoices/GetTakerData/{companyIndex}")]
+        public async Task<IActionResult> GetTakerData([FromRoute] string companyIndex)
+        {
+            
+                Taker taker = await _takerRepository.GetByCI(companyIndex);
+                return Json(taker);
+            
+        }
     }
 }
