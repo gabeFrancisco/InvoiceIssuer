@@ -6,6 +6,7 @@ using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace InvoiceIssuer.Web.Controllers
 {
@@ -69,6 +70,46 @@ namespace InvoiceIssuer.Web.Controllers
             }
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> GetInvoice([FromQuery] Guid invoiceGuid)
+        {
+            try
+            {
+                InvoicesViewModel viewModel = new InvoicesViewModel();
+                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
+                viewModel.Invoice = invoice;
+                viewModel.Provider = _loginStorage.GetProvider();
+                viewModel.Taker = await _takerRepository.Read(invoice.TakerId);
+
+                return View("Invoice", viewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+        [Route("/Invoices/GetTakerData/{companyIndex}")]
+        public async Task<IActionResult> GetTakerData([FromRoute] string companyIndex)
+        {
+
+            Taker taker = await _takerRepository.GetByCI(companyIndex);
+            return Json(taker);
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProviderInvoiceHistory()
+        {
+            IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
+            List<int> monthList = new List<int>( new int[12]);
+            for(int i=0; i<monthList.Count(); i++)
+            {
+                monthList[i] = invoices.Where(x => x.Date.Month.Equals(i+1)).Count();
+            }
+            return Json(monthList);
+        }
+
         [HttpPost]
         public async Task<IActionResult> New([FromForm] InvoicesViewModel invoicesViewModel)
         {
@@ -110,7 +151,7 @@ namespace InvoiceIssuer.Web.Controllers
                         City = invoicesViewModel.Address.City,
                         State = invoicesViewModel.Address.State,
                         PostalCode = invoicesViewModel.Address.PostalCode
-                    },
+                    }
                 };
 
                 invoice.ServiceType = await _serviceTypeRepository.GetByName(invoicesViewModel.ServiceType);
@@ -130,33 +171,6 @@ namespace InvoiceIssuer.Web.Controllers
             {
                 return BadRequest(ex);
             }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetInvoice([FromQuery] Guid invoiceGuid)
-        {
-            try
-            {
-                InvoicesViewModel viewModel = new InvoicesViewModel();
-                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
-                viewModel.Invoice = invoice;
-                viewModel.Provider = _loginStorage.GetProvider();
-                viewModel.Taker = await _takerRepository.Read(invoice.TakerId);
-
-                return View("Invoice", viewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
-        [Route("/Invoices/GetTakerData/{companyIndex}")]
-        public async Task<IActionResult> GetTakerData([FromRoute] string companyIndex)
-        {
-            
-                Taker taker = await _takerRepository.GetByCI(companyIndex);
-                return Json(taker);
-            
         }
     }
 }

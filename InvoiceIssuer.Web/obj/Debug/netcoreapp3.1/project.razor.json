@@ -14422,11 +14422,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_Chart.cshtml",
-      "TargetPath": "Views\\Shared\\_Chart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Info.cshtml",
       "TargetPath": "Views\\Dashboard\\Info.cshtml",
       "FileKind": "mvc"

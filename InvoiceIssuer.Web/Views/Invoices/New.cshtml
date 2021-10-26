@@ -16,6 +16,10 @@
     </li>
 </ul>
 <div class="invoice-form">
+    <div id="invoiceWarnings">
+
+    </div>
+
     <div class="mt-3">
         <form method="POST">
             <div class="tab-content">
@@ -30,9 +34,10 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">CI</span>
                                 </div>
-                                <input type="text" class="form-control" id="ci" asp-for="Taker.CI">
+                                <input type="text" class="form-control" id="ci" asp-for="Taker.CI" maxlength="7">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-primary" id="searchTakerBtn" onclick="getTakerData()"><i class="fas fa-search"></i></button>
+                                    <button type="button" class="btn btn-primary" id="searchTakerBtn"
+                                        onclick="getTakerData()"><i class="fas fa-search"></i></button>
                                 </div>
 
                                 <small id="ciHelp" class="form-text text-muted">You can press the "Search" button if
@@ -194,8 +199,8 @@
 
                 <div class="tab tab-pane" id="pricing">
                     <h5>Pricing</h5>
-                    <hr/>
-                    
+                    <hr />
+
                     <div class="row">
                         <div class="col-4">
                             <div class="input-group inp/ut-group-sm mb-4">
