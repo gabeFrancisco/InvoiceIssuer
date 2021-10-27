@@ -102,12 +102,21 @@ namespace InvoiceIssuer.Web.Controllers
         public async Task<IActionResult> GetProviderInvoiceHistory()
         {
             IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
-            List<int> monthList = new List<int>( new int[12]);
-            for(int i=0; i<monthList.Count(); i++)
+            List<int> monthList = new List<int>(new int[12]);
+            for (int i = 0; i < monthList.Count(); i++)
             {
-                monthList[i] = invoices.Where(x => x.Date.Month.Equals(i+1)).Count();
+                monthList[i] = invoices.Where(x => x.Date.Month.Equals(i + 1)).Count();
             }
             return Json(monthList);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProviderTotalIncome()
+        {
+            IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
+            decimal income = invoices.Sum(x => x.TotalValue);
+
+            return Json(income);
         }
 
         [HttpPost]
