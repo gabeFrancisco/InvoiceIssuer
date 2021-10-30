@@ -31,13 +31,13 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark box-shadow navbar-dashboard">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light box-shadow navbar-dashboard border-bottom">
       <div class="logo">
-        <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">Invoice Issuer</a>
+        <a class="navbar-brand text-dark" asp-area="" asp-controller="Home" asp-action="Index">Invoice Issuer</a>
       </div>
       <div>
         <ul class="navbar-nav flex-grow-1">
-          <li class="nav-link text-light">
+          <li class="nav-link text-dark">
             @* Welcome @session.GetProvider().ComercialName *@
           </li>
           <li class="nav-item">
@@ -51,23 +51,19 @@
     </nav>
   </header>
   <div class="content-wrapper">
-    <aside class="sidebar text-light bg-dark">
+    <aside class="sidebar text-dark bg-light shadow">
       <ul>
         <li>
-          <i class="fas fa-home fa-fw"></i>
-          <a asp-controller="Dashboard" asp-action="Info">Home</a>
+          <a asp-controller="Dashboard" asp-action="Info"><i class="fas fa-home fa-fw"></i>Home</a>
         </li>
         <li>
-          <i class="fas fa-file-invoice-dollar fa-fw"></i>
-          <a asp-controller="Invoices" asp-action="List">Invoices</a>
+          <a asp-controller="Invoices" asp-action="List"><i class="fas fa-file-invoice-dollar fa-fw"></i>Invoices</a>
         </li>
         <li>
-          <i class="fas fa-user-tie fa-fw"></i>
-          <a>Customers</a>
+          <a> <i class="fas fa-user-tie fa-fw"></i>Customers</a>
         </li>
         <li>
-          <i class="fas fa-cog fa-fw"></i>
-          <a>Settings</a>
+          <a> <i class="fas fa-cog fa-fw"></i>Settings</a>
         </li>
       </ul>
     </aside>

@@ -17,14 +17,14 @@
 <body>
     <header>
         <nav
-            class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light invoice-nav box-shadow mb-3 border-bottom bg-dark">
+            class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light invoice-nav box-shadow mb-3 border-bottom bg-light">
             <div class="text-center">
                 <button class="btn btn-light btn-sm ml-2" type='button'
                     onclick="javascript:history.back();return false;"> Back </button>
                 <button class="btn btn-light btn-sm ml-2" type='button'
                     onclick="window.print();return false;">Print</button>
             </div>
-            <span class="text-light">@session.GetProvider().ComercialName</span>
+            <span class="text-dark">@session.GetProvider().ComercialName</span>
             </div>
         </nav>
     </header>
