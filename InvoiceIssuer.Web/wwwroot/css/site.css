@@ -129,7 +129,6 @@ html {
 .sidebar ul li {
   list-style-type: none;
   border-bottom: 1px solid rgba(14, 14, 14, 0.115);
-  color: #292929;
 }
 
 .sidebar ul li a {

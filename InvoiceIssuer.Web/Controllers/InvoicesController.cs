@@ -70,7 +70,6 @@ namespace InvoiceIssuer.Web.Controllers
             }
         }
 
-
         [HttpGet]
         public async Task<IActionResult> GetInvoice([FromQuery] Guid invoiceGuid)
         {
@@ -128,7 +127,7 @@ namespace InvoiceIssuer.Web.Controllers
                 {
                     Id = Guid.NewGuid(),
                     CreatedAt = DateTime.UtcNow,
-                    Date = DateTime.UtcNow
+                    Date = invoicesViewModel.Date
                 };
 
                 var invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
@@ -138,30 +137,41 @@ namespace InvoiceIssuer.Web.Controllers
                 invoice.Provider = await _providerRepository.GetByCI(_loginStorage.GetProvider().CI);
                 invoice.Title = invoicesViewModel.Title;
                 invoice.Description = invoicesViewModel.Description;
-                invoice.Taker = new Taker()
-                {
-                    Id = Guid.NewGuid(),
-                    CreatedAt = DateTime.UtcNow,
-                    CI = invoicesViewModel.Taker.CI,
-                    ComercialName = invoicesViewModel.Taker.ComercialName,
-                    Phone = invoicesViewModel.Taker.Phone,
-                    Email = invoicesViewModel.Taker.Email,
 
-                    //Get company type name by searching the string of viewModel
-                    CompanyType = await _companyTypeRepository.GetByName(invoicesViewModel.CompanyType),
-                    Address = new Address()
+                var dbTaker = await _takerRepository.GetByCI(invoicesViewModel.Taker.CI);
+
+                if (dbTaker != null)
+                {
+                    invoice.Taker = dbTaker;
+                }
+
+                else
+                {
+                    invoice.Taker = new Taker()
                     {
                         Id = Guid.NewGuid(),
                         CreatedAt = DateTime.UtcNow,
-                        Road = invoicesViewModel.Address.Road,
-                        Number = invoicesViewModel.Address.Number,
-                        Complement = invoicesViewModel.Address.Complement,
-                        Block = invoicesViewModel.Address.Block,
-                        City = invoicesViewModel.Address.City,
-                        State = invoicesViewModel.Address.State,
-                        PostalCode = invoicesViewModel.Address.PostalCode
-                    }
-                };
+                        CI = invoicesViewModel.Taker.CI,
+                        ComercialName = invoicesViewModel.Taker.ComercialName,
+                        Phone = invoicesViewModel.Taker.Phone,
+                        Email = invoicesViewModel.Taker.Email,
+
+                        //Get company type name by searching the string of viewModel
+                        CompanyType = await _companyTypeRepository.GetByName(invoicesViewModel.CompanyType),
+                        Address = new Address()
+                        {
+                            Id = Guid.NewGuid(),
+                            CreatedAt = DateTime.UtcNow,
+                            Road = invoicesViewModel.Address.Road,
+                            Number = invoicesViewModel.Address.Number,
+                            Complement = invoicesViewModel.Address.Complement,
+                            Block = invoicesViewModel.Address.Block,
+                            City = invoicesViewModel.Address.City,
+                            State = invoicesViewModel.Address.State,
+                            PostalCode = invoicesViewModel.Address.PostalCode
+                        }
+                    };
+                }
 
                 invoice.ServiceType = await _serviceTypeRepository.GetByName(invoicesViewModel.ServiceType);
                 invoice.TotalValue = invoicesViewModel.Price;
