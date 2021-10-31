@@ -26,6 +26,7 @@
                         </div>
                         <div class="modal-body">
                             <p>@TempData["Logout"]</p>
+                            <span>@Model.CI</span>
                         </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -44,7 +45,6 @@
                             <input type="text" id="inputCI" class="form-control" placeholder="Company Identifier" asp-for="CI"
                                 maxlength="7" minlength="7" required autofocus>
                         </div>
-
                         <div class="form-label-group">
                             <label class="mb-2 mt-2" for="inputPassword">Password</label>
                             <input type="password" id="inputPassword" class="form-control" placeholder="******" asp-for="Password"

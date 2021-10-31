@@ -14427,6 +14427,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/Preview.cshtml",
+      "TargetPath": "Views\\Invoices\\Preview.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Info.cshtml",
       "TargetPath": "Views\\Dashboard\\Info.cshtml",
       "FileKind": "mvc"
@@ -14454,6 +14459,11 @@
     {
       "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Example.cshtml",
+      "TargetPath": "Views\\Dashboard\\Example.cshtml",
       "FileKind": "mvc"
     },
     {

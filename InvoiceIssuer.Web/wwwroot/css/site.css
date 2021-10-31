@@ -167,6 +167,10 @@ html {
   width: 85vw;
 }
 
+table{
+  animation: AreaFade 1.3s forwards;
+}
+
 .dashboard-menu {
   display: flex;
   flex-direction: row;

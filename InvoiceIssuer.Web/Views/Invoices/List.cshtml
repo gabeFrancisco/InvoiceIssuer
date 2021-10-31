@@ -5,10 +5,11 @@
 
 <div class="dashboard-menu pt-1 bg-light">
 	<ul>
-		<li><a asp-controller="Invoices" asp-action="New" class="btn btn-success btn-sm" type="submit"><i
-					class="fas fa-plus"></i> New </a></li>
-		<li><button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-edit"></i> Edit</button></li>
-		<li><button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i> Delete</button></li>
+		<li>
+			<a asp-controller="Invoices" asp-action="New" class="btn btn-success btn-sm" type="submit">
+				<i class="fas fa-plus"></i> New Invoice!
+			</a>
+		</li>
 	</ul>
 	<form class="d-flex">
 		<input class="form-control form-control-sm mr-2" type="input" placeholder="Search invoice...">
@@ -21,19 +22,20 @@
 			<th scope="col">@Html.DisplayNameFor(model => model.Invoice.Number)</th>
 			<th scope="col">@Html.DisplayNameFor(model => model.Invoice.Taker)</th>
 			<th scope="col">@Html.DisplayNameFor(model => model.Invoice.Title)</th>
+			<th scope="col">@Html.DisplayNameFor(model => model.Invoice.Date)</th>
 			<th scope="col">Invoice Value</th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach (var invoice in Model.Invoices.OrderBy(model => model.Number))
 		{
-			<tr onclick="location.href = '@(Url.Action("GetInvoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
+			<tr onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
 				<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
 				</td>
 				<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
 				<td>@Html.DisplayFor(model => invoice.Title)</td>
+				<td>@Html.DisplayFor(model => invoice.Date)</td>
 				<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
-
 			</tr>
 		}
 	</tbody>

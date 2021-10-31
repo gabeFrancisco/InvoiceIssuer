@@ -56,26 +56,7 @@ namespace InvoiceIssuer.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> New()
-        {
-            try
-            {
-                InvoicesViewModel invoicesViewModel = new InvoicesViewModel()
-                {
-                    ServiceTypes = await _serviceTypeRepository.GetAll(),
-                    CompanyTypes = await _companyTypeRepository.GetAll()
-                };
-
-                return View(invoicesViewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetInvoice([FromQuery] Guid invoiceGuid)
+        public async Task<IActionResult> GetInvoice(Guid invoiceGuid)
         {
             try
             {
@@ -85,7 +66,7 @@ namespace InvoiceIssuer.Web.Controllers
                 viewModel.Provider = _loginStorage.GetProvider();
                 viewModel.Taker = await _takerRepository.Read(invoice.TakerId);
 
-                return View("Invoice", viewModel);
+                return View("Preview", viewModel);
             }
             catch (Exception ex)
             {
@@ -113,10 +94,27 @@ namespace InvoiceIssuer.Web.Controllers
             return Json(monthList);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> New()
+        {
+            try
+            {
+                InvoicesViewModel invoicesViewModel = new InvoicesViewModel()
+                {
+                    ServiceTypes = await _serviceTypeRepository.GetAll(),
+                    CompanyTypes = await _companyTypeRepository.GetAll()
+                };
+
+                return View(invoicesViewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
 
 
-        [HttpPost]
-        public async Task<IActionResult> New([FromForm] InvoicesViewModel invoicesViewModel)
+        internal async Task<Invoice> HandleInvoice(InvoicesViewModel invoicesViewModel, string method)
         {
             try
             {
@@ -174,13 +172,33 @@ namespace InvoiceIssuer.Web.Controllers
                 invoice.TotalValue = invoicesViewModel.Price;
                 invoice.TaxValue = 2.5M;
 
-                await _invoiceRepository.Create(invoice);
+                if (method == "Create")
+                {
+                    await _invoiceRepository.Create(invoice);
+                }
 
-                //The viewModel is refilled again to redirect to the invoice read-only/printing view.
+                if (method == "Update")
+                {
+                    await _invoiceRepository.Update(invoice);
+                }
+
+                return invoice;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> New([FromForm] InvoicesViewModel invoicesViewModel)
+        {
+            try
+            {
+                Invoice invoice = await HandleInvoice(invoicesViewModel, "Create");
                 invoicesViewModel.Provider = invoice.Provider;
                 invoicesViewModel.Taker = invoice.Taker;
                 invoicesViewModel.Invoice = invoice;
-
                 return View("Invoice", invoicesViewModel);
             }
             catch (Exception ex)
@@ -189,6 +207,7 @@ namespace InvoiceIssuer.Web.Controllers
             }
         }
 
+
         [HttpGet]
         public async Task<IActionResult> GetProviderTotalIncome()
         {
@@ -196,6 +215,70 @@ namespace InvoiceIssuer.Web.Controllers
             decimal income = invoices.Sum(x => x.TotalValue);
 
             return Json(income);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Invoice([FromQuery] Guid invoiceGuid)
+        {
+            try
+            {
+                InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
+
+                invoicesViewModel.ServiceTypes = await _serviceTypeRepository.GetAll();
+                invoicesViewModel.CompanyTypes = await _companyTypeRepository.GetAll();
+
+                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
+                invoicesViewModel.Invoice = invoice;
+
+                Taker taker = await _takerRepository.GetByCI(invoice.Taker.CI);
+                invoicesViewModel.Taker = taker;
+                invoicesViewModel.Address = taker.Address;
+                decimal totalValue = invoice.TotalValue;
+                invoicesViewModel.Price = decimal.Round(invoice.TotalValue, 2, MidpointRounding.AwayFromZero);
+                totalValue = decimal.Round(invoice.TotalValue, 2, MidpointRounding.AwayFromZero);
+
+                return View(invoicesViewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+
+        public async Task<IActionResult> Edit()
+        {
+            try
+            {
+                InvoicesViewModel invoicesViewModel = new InvoicesViewModel()
+                {
+                    ServiceTypes = await _serviceTypeRepository.GetAll(),
+                    CompanyTypes = await _companyTypeRepository.GetAll()
+                };
+
+                return View(invoicesViewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit([FromForm] InvoicesViewModel invoicesViewModel)
+        {
+            try
+            {
+                Invoice invoice = await HandleInvoice(invoicesViewModel, "Update");
+                invoicesViewModel.Provider = invoice.Provider;
+                invoicesViewModel.Taker = invoice.Taker;
+                invoicesViewModel.Invoice = invoice;
+                return View("Invoice", invoicesViewModel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }
