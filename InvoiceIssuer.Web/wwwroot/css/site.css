@@ -28,8 +28,12 @@
   body{
     zoom: 80%;
   }
+}
 
-  
+#logo{
+  width: auto;
+  height: 22px;
+  margin-bottom: 5px;
 }
 
 header {

@@ -27,6 +27,7 @@ namespace InvoiceIssuer.Web.Sessions
             }
             catch (ArgumentNullException)
             {
+                // throw new NullSessionException("Your session has ended!");
                 return null;
             }
         }

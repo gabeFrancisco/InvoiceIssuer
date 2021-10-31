@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "zs/H1ABuN1VUT9NSOPSUtW/Hyw2Ryj+I6vBYDeKcwCTL9KZhCM8+prT0xqeYwVc1F26kD4jcD9v6FUe2OE6uNw==",
+  "dgSpecHash": "JvxV7czbqljc6QS/bbVURQCucRW5mZyVC01trAsskjuT48ASVShmpGKAUEtC/ZqI3XNe7kWdHJDsafBX7pylrg==",
   "success": true,
   "projectFilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
   "expectedPackageFiles": [
     "/home/gabrielfrank/.nuget/packages/castle.core/4.4.0/castle.core.4.4.0.nupkg.sha512",
+    "/home/gabrielfrank/.nuget/packages/microsoft.aspnetcore.jsonpatch/3.1.20/microsoft.aspnetcore.jsonpatch.3.1.20.nupkg.sha512",
+    "/home/gabrielfrank/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/3.1.20/microsoft.aspnetcore.mvc.newtonsoftjson.3.1.20.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/microsoft.bcl.hashcode/1.1.1/microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -31,6 +33,7 @@
     "/home/gabrielfrank/.nuget/packages/mysqlconnector/0.61.0/mysqlconnector.0.61.0.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/home/gabrielfrank/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/pomelo.entityframeworkcore.mysql/3.1.1/pomelo.entityframeworkcore.mysql.3.1.1.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/pomelo.jsonobject/2.2.1/pomelo.jsonobject.2.2.1.nupkg.sha512",
     "/home/gabrielfrank/.nuget/packages/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

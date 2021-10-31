@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Http;
 
 namespace InvoiceIssuer.Services.Sessions
@@ -17,7 +18,17 @@ namespace InvoiceIssuer.Services.Sessions
         }
 
         public void Remove(string key) => _context.HttpContext.Session.Remove(key);
-        public string Read(string key) => _context.HttpContext.Session.GetString(key);
+        public string Read(string key)
+        {
+            try
+            {
+                return _context.HttpContext.Session.GetString(key);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public bool Exists(string key) => (this.Read(key) != null) ? true : false;
         public void RemoveAll() => _context.HttpContext.Session.Clear();
     }

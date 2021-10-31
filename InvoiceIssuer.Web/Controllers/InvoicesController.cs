@@ -1,5 +1,6 @@
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
+using InvoiceIssuer.Web.Filters;
 using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace InvoiceIssuer.Web.Controllers
 {
+    [UserAuthorizationAttribute]
     public class InvoicesController : Controller
     {
         private readonly LoginStorage _loginStorage;
@@ -47,9 +49,9 @@ namespace InvoiceIssuer.Web.Controllers
                 };
                 return View(invoicesViewModel);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                return BadRequest(ex);
             }
         }
 

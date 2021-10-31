@@ -20,7 +20,6 @@ function getTotalIncome() {
             document.getElementById('totalIncome').innerHTML = data.toFixed(2)
           }
         }, 50)
-        
       }
     })
 }
