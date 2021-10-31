@@ -3,14 +3,24 @@ window.onload = function () {
   getTotalIncome()
 }
 
+function setTotalIncomeValue(){
+  document.getElementById('totalIncome2').innerHTML = "I love God and Jesus!"
+}
+
+
 function getTotalIncome() {
   fetch('/Invoices/GetProviderTotalIncome')
     .then(res => res.json())
-    .then(function (data) {
-      for (let i = 0; i <= data; i++) {
+    .then(function (data){
+      for (let i = 0.0; i <= data; i++) {
         setTimeout(function () {
           document.getElementById('totalIncome').innerHTML = i.toFixed(2)
+          if(i == Math.floor(data)){
+            console.log(true)
+            document.getElementById('totalIncome').innerHTML = data.toFixed(2)
+          }
         }, 50)
+        
       }
     })
 }

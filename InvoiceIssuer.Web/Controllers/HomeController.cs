@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using InvoiceIssuer.Web.Models;
-using InvoiceIssuer.Web.Sessions;
+﻿using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
+using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
-using InvoiceIssuer.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace InvoiceIssuer.Web.Controllers
 {
@@ -35,7 +29,7 @@ namespace InvoiceIssuer.Web.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            
+
             var provider = new Provider();
             provider = await _providerRepository.GetByCI(viewModel.CI);
             string hashPassword = HashEncrypt.GenerateHash(viewModel.Password);

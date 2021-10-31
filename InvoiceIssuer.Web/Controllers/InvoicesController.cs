@@ -1,12 +1,12 @@
-using System;
-using System.Threading.Tasks;
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
 using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace InvoiceIssuer.Web.Controllers
 {
@@ -41,8 +41,10 @@ namespace InvoiceIssuer.Web.Controllers
         {
             try
             {
-                InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
-                invoicesViewModel.Invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
+                InvoicesViewModel invoicesViewModel = new InvoicesViewModel
+                {
+                    Invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id)
+                };
                 return View(invoicesViewModel);
             }
             catch (Exception)
@@ -109,14 +111,7 @@ namespace InvoiceIssuer.Web.Controllers
             return Json(monthList);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetProviderTotalIncome()
-        {
-            IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
-            decimal income = invoices.Sum(x => x.TotalValue);
 
-            return Json(income);
-        }
 
         [HttpPost]
         public async Task<IActionResult> New([FromForm] InvoicesViewModel invoicesViewModel)
@@ -190,6 +185,15 @@ namespace InvoiceIssuer.Web.Controllers
             {
                 return BadRequest(ex);
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProviderTotalIncome()
+        {
+            IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
+            decimal income = invoices.Sum(x => x.TotalValue);
+
+            return Json(income);
         }
     }
 }

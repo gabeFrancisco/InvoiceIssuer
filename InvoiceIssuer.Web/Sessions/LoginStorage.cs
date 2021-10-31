@@ -1,7 +1,7 @@
-using System;
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Services.Sessions;
 using Newtonsoft.Json;
+using System;
 
 namespace InvoiceIssuer.Web.Sessions
 {

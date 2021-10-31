@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using InvoiceIssuer.Domain.Interfaces;
 using InvoiceIssuer.Repository.Context;
 using InvoiceIssuer.Repository.Repositories;
@@ -9,7 +5,6 @@ using InvoiceIssuer.Services.Sessions;
 using InvoiceIssuer.Web.Sessions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

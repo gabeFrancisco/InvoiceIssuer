@@ -10,9 +10,9 @@ namespace InvoiceIssuer.Services.Sessions
         public void Create(string key, string value) => _context.HttpContext.Session.SetString(key, value);
         public void Update(string key, string value)
         {
-            if(this.Exists(key))
+            if (this.Exists(key))
                 _context.HttpContext.Session.Remove(key);
-            
+
             _context.HttpContext.Session.SetString(key, value);
         }
 

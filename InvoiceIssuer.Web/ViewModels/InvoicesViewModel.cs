@@ -1,6 +1,6 @@
+using InvoiceIssuer.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using InvoiceIssuer.Domain.Entities;
 
 namespace InvoiceIssuer.Web.ViewModels
 {

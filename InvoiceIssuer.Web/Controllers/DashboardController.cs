@@ -1,24 +1,21 @@
-using System;
-using System.Threading.Tasks;
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
 using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace InvoiceIssuer.Web.Controllers
 {
     public class DashboardController : Controller
     {
         private readonly LoginStorage _loginStorage;
-        private readonly IProviderRepository _providerRepository;
         private readonly IAddressRepository _addressRepository;
         public DashboardController(LoginStorage loginStorage,
-                                   IProviderRepository providerRepository,
                                    IAddressRepository addressRepository)
         {
             _loginStorage = loginStorage;
-            _providerRepository = providerRepository;
             _addressRepository = addressRepository;
         }
         [HttpGet]

@@ -1,5 +1,3 @@
-using System;
-
 namespace InvoiceIssuer.Web.Models
 {
     public class ErrorViewModel
