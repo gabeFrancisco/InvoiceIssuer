@@ -43,6 +43,7 @@
             @* Welcome @session.GetProvider().ComercialName *@
           </li>
           <li class="nav-item">
+            <span class="text-dark m-2">@session.GetProvider().ComercialName</span>
             <a id="logout" class="btn btn-danger btn-sm" asp-controller="Dashboard" asp-action="Logout">
               Logout
               <i class="fas fa-sign-out-alt"></i>

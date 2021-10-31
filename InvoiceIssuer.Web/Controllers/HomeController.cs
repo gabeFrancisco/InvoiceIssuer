@@ -21,6 +21,11 @@ namespace InvoiceIssuer.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (_loginStorage.GetProvider() != null)
+            {
+                return RedirectToAction("Info", "Dashboard");
+            }
+            
             return View();
         }
 
