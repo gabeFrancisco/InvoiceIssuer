@@ -7,7 +7,7 @@
   }
 }
 
-@keyframes PageFade {
+@keyframes AreaFade{
   0% {
     opacity: 0%;
   }
@@ -155,6 +155,14 @@ html {
   animation: MenuLeftBorder 0.4s forwards;
 }
 
+#invoiceWarnings{
+  animation: AreaFade 1.3s forwards;
+}
+
+.invoices-info-dashboard{
+  animation: AreaFade 1.3s forwards;
+}
+
 .dashboard-main {
   width: 85vw;
 }
@@ -186,6 +194,7 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  animation: AreaFade 0.8s forwards;
 }
 
 .company-logo img {

@@ -17,11 +17,10 @@
 <body>
     <header>
         <nav
-            class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light invoice-nav box-shadow mb-3 border-bottom bg-light">
+            class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light invoice-nav shadow mb-3 border-bottom bg-light">
             <div class="text-center">
-                <button class="btn btn-light btn-sm ml-2" type='button'
-                    onclick="javascript:history.back();return false;"> Back </button>
-                <button class="btn btn-light btn-sm ml-2" type='button'
+                <a class="btn btn-primary btn-sm ml-2" asp-controller="Invoices" asp-action="List"> Back </a>
+                <button class="btn btn-primary btn-sm ml-2" type='button'
                     onclick="window.print();return false;">Print</button>
             </div>
             <span class="text-dark">@session.GetProvider().ComercialName</span>
