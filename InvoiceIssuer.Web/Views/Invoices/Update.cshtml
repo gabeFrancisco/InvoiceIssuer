@@ -1,0 +1,234 @@
+@model InvoicesViewModel
+@{
+    Layout = "_Dashboard";
+}
+
+<script src="~/js/invoice.js"></script>
+<h3 class="text-center mt-3 mb-2">Update Invoice</h3>
+
+<div class="dashboard-menu bg-light border-top border-bottom">
+    @* <div class="d-flex m-2">
+        <small>The tax appliance of the invoice is applied after 3 days counting the issue date! After this you can't edit,
+        only delete is permitted</small>
+        </div> *@
+    <div class="d-flex m-2">
+        <span>Invoice issued in - <b><i id="issuedDate">@Model.Invoice.Date</i></b></span>
+    </div>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="#taker" data-toggle="tab">Taker</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#invoice" data-toggle="tab">Invoice</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#pricing" data-toggle="tab">Pricing</a>
+    </li>
+</ul>
+
+<div class="invoice-form">
+    <div id="invoiceWarnings">
+
+    </div>
+
+    <div class="mt-3">
+        <form method="POST">
+            <div class="tab-content">
+
+                <div id="taker" class="tab-pane active">
+                    <h5>Taker Information</h5>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">CI</span>
+                                </div>
+                                <input type="text" class="form-control" id="ci" asp-for="Taker.CI" maxlength="7">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-primary" id="searchTakerBtn"
+                                        onclick="getTakerData()"><i class="fas fa-search"></i></button>
+                                </div>
+
+                                <small id="ciHelp" class="form-text text-muted">You can press the "Search" button if
+                                    the
+                                    taker data is already saved in our database.</small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Comercial Name</span>
+                                </div>
+                                <input type="text" class="form-control" id="comercialName"
+                                    asp-for="Taker.ComercialName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Phone</span>
+                                </div>
+                                <input type="tel" class="form-control" id="phone" asp-for="Taker.Phone">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">E-mail</span>
+                                </div>
+                                <input type="email" class="form-control" id="takerEmail" asp-for="Taker.Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Road</span>
+                                </div>
+                                <input type="text" class="form-control" id="road" asp-for="Address.Road">
+                            </div>
+
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Number</span>
+                                </div>
+                                <input type="text" class="form-control" id="roadNumber" asp-for="Address.Number">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Complement</span>
+                                </div>
+                                <input type="text" class="form-control" id="complement" asp-for="Address.Complement">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Block</span>
+                                </div>
+                                <input type="text" class="form-control" id="block" asp-for="Address.Block">
+                            </div>
+
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">City</span>
+                                </div>
+                                <input type="text" class="form-control" id="city" asp-for="Address.City">
+                                <small class="form-text text-muted">City is not standardized and you can type any you
+                                    want.</small>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">State</span>
+                                </div>
+                                <input type="text" class="form-control" id="state" asp-for="Address.State">
+                                <small class="form-text text-muted">Same as above, you can type any state of your
+                                    country.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Postal Code</span>
+                                </div>
+                                <input type="text" class="form-control" id="postalCode" asp-for="Address.PostalCode">
+                            </div>
+                        </div>
+
+                        <div class="col-5">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Company Type</span>
+                                </div>
+                                <select class="form-select" id="companySelect" asp-for="CompanyType">
+                                    @foreach (var companyType in Model.CompanyTypes)
+                                    {
+                                        <option id="companyType">@companyType.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="invoice">
+                    <h5 class="mt-3">Invoice Information</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Title</span>
+                                </div>
+                                <input type="text" class="form-control" id="title" asp-for="Title">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="input-group input-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Service Type</span>
+                                </div>
+                                <select class="form-select" id="serviceSelect" asp-for="ServiceType">
+                                    @foreach (var serviceType in Model.ServiceTypes)
+                                    {
+                                        <option id="serviceType">@serviceType.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mb-4">
+                                <div class="input-group">
+                                    <span class="input-group-text">Description</span>
+                                </div>
+                                <textarea class="form-control" id="description" asp-for="Description"
+                                    rows="7"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab tab-pane" id="pricing">
+                    <h5>Pricing</h5>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="input-group inp/ut-group-sm mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Price</span>
+                                </div>
+                                <input type="text" class="form-control" id="price" asp-for="Price">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="d-grid gap-4 mt-4">
+                    <button class="btn btn-lg btn-primary" type="submit"><b>Update!</b></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

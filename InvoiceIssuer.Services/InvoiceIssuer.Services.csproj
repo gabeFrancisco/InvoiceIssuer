@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\InvoiceIssuer.Repository\InvoiceIssuer.Repository.csproj" />
+    <ProjectReference Include="..\InvoiceIssuer.Domain\InvoiceIssuer.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

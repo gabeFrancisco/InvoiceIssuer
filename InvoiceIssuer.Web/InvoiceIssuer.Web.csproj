@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InvoiceIssuer.Repository\InvoiceIssuer.Repository.csproj" />
+    <ProjectReference Include="..\InvoiceIssuer.Services\InvoiceIssuer.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -207,7 +207,6 @@ namespace InvoiceIssuer.Web.Controllers
             }
         }
 
-
         [HttpGet]
         public async Task<IActionResult> GetProviderTotalIncome()
         {
@@ -234,8 +233,6 @@ namespace InvoiceIssuer.Web.Controllers
                 invoicesViewModel.Taker = taker;
                 invoicesViewModel.Address = taker.Address;
                 decimal totalValue = invoice.TotalValue;
-                invoicesViewModel.Price = decimal.Round(invoice.TotalValue, 2, MidpointRounding.AwayFromZero);
-                totalValue = decimal.Round(invoice.TotalValue, 2, MidpointRounding.AwayFromZero);
 
                 return View(invoicesViewModel);
             }
@@ -245,27 +242,27 @@ namespace InvoiceIssuer.Web.Controllers
             }
         }
 
-
-        public async Task<IActionResult> Edit()
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid invoiceGuid)
         {
-            try
-            {
-                InvoicesViewModel invoicesViewModel = new InvoicesViewModel()
-                {
-                    ServiceTypes = await _serviceTypeRepository.GetAll(),
-                    CompanyTypes = await _companyTypeRepository.GetAll()
-                };
+             InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
+
+                invoicesViewModel.ServiceTypes = await _serviceTypeRepository.GetAll();
+                invoicesViewModel.CompanyTypes = await _companyTypeRepository.GetAll();
+
+                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
+                invoicesViewModel.Invoice = invoice;
+
+                Taker taker = await _takerRepository.GetByCI(invoice.Taker.CI);
+                invoicesViewModel.Taker = taker;
+                invoicesViewModel.Address = taker.Address;
+                decimal totalValue = invoice.TotalValue;
 
                 return View(invoicesViewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit([FromForm] InvoicesViewModel invoicesViewModel)
+        public async Task<IActionResult> Update([FromForm] InvoicesViewModel invoicesViewModel)
         {
             try
             {
