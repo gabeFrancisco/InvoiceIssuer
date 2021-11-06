@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using InvoiceIssuer.Domain.Interfaces.ServicesInterfaces;
+using InvoiceIssuer.Services;
 
 namespace InvoiceIssuer.Web
 {
@@ -43,6 +45,8 @@ namespace InvoiceIssuer.Web
             services.AddScoped<IServiceTypeRepository, ServiceTypeRepository>();
             services.AddScoped<ICompanyTypeRepository, CompanyTypeRepository>();
             services.AddScoped<ITakerRepository, TakerRepository>();
+
+            services.AddScoped<IInvoiceService, InvoiceService>();
 
             services.AddSession(options =>
             {

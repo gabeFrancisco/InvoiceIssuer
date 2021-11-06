@@ -1,5 +1,6 @@
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
+using InvoiceIssuer.Domain.Interfaces.ServicesInterfaces;
 using InvoiceIssuer.Web.Filters;
 using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
@@ -14,6 +15,7 @@ namespace InvoiceIssuer.Web.Controllers
     [UserAuthorizationAttribute]
     public class InvoicesController : Controller
     {
+        private readonly IInvoiceService _invoiceService;
         private readonly LoginStorage _loginStorage;
         private readonly IProviderRepository _providerRepository;
         private readonly IAddressRepository _addressRepository;
@@ -21,14 +23,16 @@ namespace InvoiceIssuer.Web.Controllers
         private readonly IServiceTypeRepository _serviceTypeRepository;
         private readonly ICompanyTypeRepository _companyTypeRepository;
         private readonly ITakerRepository _takerRepository;
-        public InvoicesController(LoginStorage loginStorage,
-                                   IProviderRepository providerRepository,
-                                   IAddressRepository addressRepository,
-                                   IInvoiceRepository invoiceRepository,
-                                   IServiceTypeRepository serviceTypeRepository,
-                                   ICompanyTypeRepository companyTypeRepository,
-                                   ITakerRepository takerRepository)
+        public InvoicesController(IInvoiceService invoiceService,
+                                    LoginStorage loginStorage,
+                                    IProviderRepository providerRepository,
+                                    IAddressRepository addressRepository,
+                                    IInvoiceRepository invoiceRepository,
+                                    IServiceTypeRepository serviceTypeRepository,
+                                    ICompanyTypeRepository companyTypeRepository,
+                                    ITakerRepository takerRepository)
         {
+            _invoiceService = invoiceService;
             _loginStorage = loginStorage;
             _providerRepository = providerRepository;
             _addressRepository = addressRepository;
@@ -41,18 +45,10 @@ namespace InvoiceIssuer.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> List()
         {
-            try
+            return View(new InvoicesViewModel
             {
-                InvoicesViewModel invoicesViewModel = new InvoicesViewModel
-                {
-                    Invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id)
-                };
-                return View(invoicesViewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
+                Invoices = await _invoiceService.GetInvoicesByProvider(_loginStorage.GetProvider().Id)
+            });
         }
 
         [HttpGet]
@@ -245,20 +241,20 @@ namespace InvoiceIssuer.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(Guid invoiceGuid)
         {
-             InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
+            InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
 
-                invoicesViewModel.ServiceTypes = await _serviceTypeRepository.GetAll();
-                invoicesViewModel.CompanyTypes = await _companyTypeRepository.GetAll();
+            invoicesViewModel.ServiceTypes = await _serviceTypeRepository.GetAll();
+            invoicesViewModel.CompanyTypes = await _companyTypeRepository.GetAll();
 
-                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
-                invoicesViewModel.Invoice = invoice;
+            Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
+            invoicesViewModel.Invoice = invoice;
 
-                Taker taker = await _takerRepository.GetByCI(invoice.Taker.CI);
-                invoicesViewModel.Taker = taker;
-                invoicesViewModel.Address = taker.Address;
-                decimal totalValue = invoice.TotalValue;
+            Taker taker = await _takerRepository.GetByCI(invoice.Taker.CI);
+            invoicesViewModel.Taker = taker;
+            invoicesViewModel.Address = taker.Address;
+            decimal totalValue = invoice.TotalValue;
 
-                return View(invoicesViewModel);
+            return View(invoicesViewModel);
         }
 
         [HttpPost]
