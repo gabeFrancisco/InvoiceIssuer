@@ -42,6 +42,17 @@ namespace InvoiceIssuer.Services
             return await _invoiceRepository.GetByProvider(_loginStorage.ProviderId);
         }
 
+        public async Task<List<int>> GetInvoiceMonths()
+        {
+            IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
+            List<int> monthList = new List<int>(new int[12]);
+            for (int i = 0; i < monthList.Count(); i++)
+            {
+                monthList[i] = invoices.Where(x => x.Date.Month.Equals(i + 1)).Count();
+            }
+
+            return monthList;
+        }
         public async Task<Invoice> CreateInvoice(Invoice invoice, Taker taker, Address address)
         {
             Invoice _invoice = new Invoice();

@@ -56,20 +56,9 @@ namespace InvoiceIssuer.Web.Controllers
         public async Task<IActionResult> GetInvoice(Guid invoiceGuid)
         {
             return View("Preview", await _invoiceService.ReadInvoice(invoiceGuid));
-        }
+        }     
 
-        [HttpGet]
-        public async Task<IActionResult> GetProviderInvoiceHistory()
-        {
-            IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
-            List<int> monthList = new List<int>(new int[12]);
-            for (int i = 0; i < monthList.Count(); i++)
-            {
-                monthList[i] = invoices.Where(x => x.Date.Month.Equals(i + 1)).Count();
-            }
-            return Json(monthList);
-        }
-
+        //TODO - Separate services
         [HttpGet]
         public async Task<IActionResult> New()
         {
@@ -97,6 +86,7 @@ namespace InvoiceIssuer.Web.Controllers
             return View("Preview", invoice);
         }
 
+        //TODO - Change to API and separate to service
         [HttpGet]
         public async Task<IActionResult> GetProviderTotalIncome()
         {

@@ -31,7 +31,7 @@ function getMonthInvoices() {
   google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
-    fetch('/Invoices/GetProviderInvoiceHistory')
+    fetch('/api/Invoices/GetProviderInvoiceHistory')
       .then(res => res.json())
       .then(function (data) {
         var data = google.visualization.arrayToDataTable([

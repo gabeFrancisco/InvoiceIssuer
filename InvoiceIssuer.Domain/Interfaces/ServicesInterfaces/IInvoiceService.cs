@@ -13,5 +13,6 @@ namespace InvoiceIssuer.Domain.Interfaces.ServicesInterfaces
         Task<Invoice> UpdateInvoice(Invoice invoice, Taker taker, Address address);
         Task<bool> DeleteInvoice(Guid id);
         Task<IEnumerable<Invoice>> GetAll();
+        Task<List<int>> GetInvoiceMonths();
     }
 }

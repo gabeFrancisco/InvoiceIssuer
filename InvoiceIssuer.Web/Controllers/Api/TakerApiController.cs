@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceIssuer.Web.Controllers.Api
 {
-    public class TakerController : Controller
+    public class TakerApiController : Controller
     {
         private readonly ITakerService _takerService;
-        public TakerController(ITakerService takerService)
+        public TakerApiController(ITakerService takerService)
         {
             _takerService = takerService;
         }
 
-        [Route("/Taker/GetTakerData/{companyIndex}")]
+        [Route("/api/Taker/GetTakerData/{companyIndex}")]
         public async Task<IActionResult> GetTakerData([FromRoute] string companyIndex)
         {
             return Json(await _takerService.ReadTaker(companyIndex));
