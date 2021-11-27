@@ -15,5 +15,9 @@ namespace InvoiceIssuer.Web.Controllers.Api
         [HttpGet]
         [Route("/api/Invoices/GetProviderInvoiceHistory")]
         public async Task<IActionResult> GetProviderInvoiceHistory() => Json(await _invoiceService.GetInvoiceMonths());
+
+        [HttpGet]
+        [Route("/api/Invoices/GetProviderTotalIncome")]
+        public async Task<IActionResult> GetProviderTotalIncome() => Json(await _invoiceService.GetProviderTotalIncome());
     }
 }

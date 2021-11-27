@@ -14,5 +14,6 @@ namespace InvoiceIssuer.Domain.Interfaces.ServicesInterfaces
         Task<bool> DeleteInvoice(Guid id);
         Task<IEnumerable<Invoice>> GetAll();
         Task<List<int>> GetInvoiceMonths();
+        Task<decimal> GetProviderTotalIncome();
     }
 }

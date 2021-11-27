@@ -9,7 +9,7 @@ function setTotalIncomeValue(){
 
 
 function getTotalIncome() {
-  fetch('/Invoices/GetProviderTotalIncome')
+  fetch('/api/Invoices/GetProviderTotalIncome')
     .then(res => res.json())
     .then(function (data){
       for (let i = 0.0; i <= data; i++) {

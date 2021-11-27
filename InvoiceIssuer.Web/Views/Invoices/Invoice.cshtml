@@ -13,7 +13,7 @@
         <li><a target="_blank" asp-controller="Invoices" asp-action="GetInvoice"
                 asp-route-invoiceGuid="@Model.Invoice.Id" class="btn btn-primary btn-sm"><i class="fa fa-print"></i>
                 View Invoice</a></li>
-        <li><a class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</a></li>
+        <li><a class="btn btn-primary btn-sm"><i class="fas fa-edit" asp-controller="Invoices" asp-action="Update"></i> Edit</a></li>
         <li><a class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a></li>
     </ul>
     @* <div class="d-flex m-2">

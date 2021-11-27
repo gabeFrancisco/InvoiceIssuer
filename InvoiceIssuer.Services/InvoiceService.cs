@@ -53,6 +53,14 @@ namespace InvoiceIssuer.Services
 
             return monthList;
         }
+        
+        public async Task<decimal> GetProviderTotalIncome()
+        {
+            IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
+            decimal income = invoices.Sum(x => x.TotalValue);
+
+            return income;
+        }
         public async Task<Invoice> CreateInvoice(Invoice invoice, Taker taker, Address address)
         {
             Invoice _invoice = new Invoice();

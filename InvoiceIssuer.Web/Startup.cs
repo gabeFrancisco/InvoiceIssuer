@@ -47,6 +47,8 @@ namespace InvoiceIssuer.Web
 
             services.AddScoped<IInvoiceService, InvoiceService>();
             services.AddScoped<ITakerService, TakerService>();
+            services.AddScoped<IServiceTypeService, ServiceTypeService>();
+            services.AddScoped<ICompanyTypeService, CompanyTypeService>();
 
             services.AddSession(options =>
             {
