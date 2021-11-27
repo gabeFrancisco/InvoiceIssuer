@@ -2,7 +2,6 @@ using InvoiceIssuer.Domain.Interfaces;
 using InvoiceIssuer.Repository.Context;
 using InvoiceIssuer.Repository.Repositories;
 using InvoiceIssuer.Services.Sessions;
-using InvoiceIssuer.Web.Sessions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

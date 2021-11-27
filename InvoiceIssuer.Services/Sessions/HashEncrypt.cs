@@ -2,7 +2,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace InvoiceIssuer.Web.Sessions
+namespace InvoiceIssuer.Services.Sessions
 {
     public class HashEncrypt
     {

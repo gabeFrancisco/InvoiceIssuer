@@ -1,6 +1,6 @@
 using System;
 using InvoiceIssuer.Domain.Entities;
-using InvoiceIssuer.Web.Sessions;
+using InvoiceIssuer.Services.Sessions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

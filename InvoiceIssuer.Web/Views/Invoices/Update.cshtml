@@ -179,7 +179,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Title</span>
                                 </div>
-                                <input type="text" class="form-control" id="title" asp-for="Title">
+                                <input type="text" class="form-control" id="title" asp-for="Invoice.ServiceType">
                             </div>
                         </div>
                         <div class="col-5">
@@ -202,7 +202,7 @@
                                 <div class="input-group">
                                     <span class="input-group-text">Description</span>
                                 </div>
-                                <textarea class="form-control" id="description" asp-for="Description"
+                                <textarea class="form-control" id="description" asp-for="Invoice.Description"
                                     rows="7"></textarea>
                             </div>
                         </div>
@@ -219,7 +219,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Price</span>
                                 </div>
-                                <input type="text" class="form-control" id="price" asp-for="Price">
+                                <input type="text" class="form-control" id="price" asp-for="Invoice.TotalValue">
                             </div>
                         </div>
                     </div>

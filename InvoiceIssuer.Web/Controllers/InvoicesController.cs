@@ -1,8 +1,8 @@
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
 using InvoiceIssuer.Domain.Interfaces.ServicesInterfaces;
+using InvoiceIssuer.Services.Sessions;
 using InvoiceIssuer.Web.Filters;
-using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -47,28 +47,17 @@ namespace InvoiceIssuer.Web.Controllers
         {
             return View(new InvoicesViewModel
             {
-                Invoices = await _invoiceService.GetInvoicesByProvider(_loginStorage.GetProvider().Id)
+                Invoices = await _invoiceService.GetInvoicesByProvider(_loginStorage.ProviderId)
             });
         }
 
         [HttpGet]
         public async Task<IActionResult> GetInvoice(Guid invoiceGuid)
         {
-            try
-            {
-                InvoicesViewModel viewModel = new InvoicesViewModel();
-                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
-                viewModel.Invoice = invoice;
-                viewModel.Provider = _loginStorage.GetProvider();
-                viewModel.Taker = await _takerRepository.Read(invoice.TakerId);
-
-                return View("Preview", viewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
+            Invoice invoice = await _invoiceService.ReadInvoice(invoiceGuid);
+            return View("Preview", invoice);
         }
+        
         [Route("/Invoices/GetTakerData/{companyIndex}")]
         public async Task<IActionResult> GetTakerData([FromRoute] string companyIndex)
         {
@@ -93,114 +82,28 @@ namespace InvoiceIssuer.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> New()
         {
-            try
+            InvoicesViewModel invoicesViewModel = new InvoicesViewModel()
             {
-                InvoicesViewModel invoicesViewModel = new InvoicesViewModel()
-                {
-                    ServiceTypes = await _serviceTypeRepository.GetAll(),
-                    CompanyTypes = await _companyTypeRepository.GetAll()
-                };
+                ServiceTypes = await _serviceTypeRepository.GetAll(),
+                CompanyTypes = await _companyTypeRepository.GetAll()
+            };
 
-                return View(invoicesViewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
-
-
-        internal async Task<Invoice> HandleInvoice(InvoicesViewModel invoicesViewModel, string method)
-        {
-            try
-            {
-                Invoice invoice = new Invoice()
-                {
-                    Id = Guid.NewGuid(),
-                    CreatedAt = DateTime.UtcNow,
-                    Date = invoicesViewModel.Date
-                };
-
-                var invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
-
-                //Get invoices list lenght for numbering
-                invoice.Number = invoices.Where(x => x.Date.Year.Equals(DateTime.UtcNow.Year)).Count() + 1;
-                invoice.Provider = await _providerRepository.GetByCI(_loginStorage.GetProvider().CI);
-                invoice.Title = invoicesViewModel.Title;
-                invoice.Description = invoicesViewModel.Description;
-
-                var dbTaker = await _takerRepository.GetByCI(invoicesViewModel.Taker.CI);
-
-                if (dbTaker != null)
-                {
-                    invoice.Taker = dbTaker;
-                }
-
-                else
-                {
-                    invoice.Taker = new Taker()
-                    {
-                        Id = Guid.NewGuid(),
-                        CreatedAt = DateTime.UtcNow,
-                        CI = invoicesViewModel.Taker.CI,
-                        ComercialName = invoicesViewModel.Taker.ComercialName,
-                        Phone = invoicesViewModel.Taker.Phone,
-                        Email = invoicesViewModel.Taker.Email,
-
-                        //Get company type name by searching the string of viewModel
-                        CompanyType = await _companyTypeRepository.GetByName(invoicesViewModel.CompanyType),
-                        Address = new Address()
-                        {
-                            Id = Guid.NewGuid(),
-                            CreatedAt = DateTime.UtcNow,
-                            Road = invoicesViewModel.Address.Road,
-                            Number = invoicesViewModel.Address.Number,
-                            Complement = invoicesViewModel.Address.Complement,
-                            Block = invoicesViewModel.Address.Block,
-                            City = invoicesViewModel.Address.City,
-                            State = invoicesViewModel.Address.State,
-                            PostalCode = invoicesViewModel.Address.PostalCode
-                        }
-                    };
-                }
-
-                invoice.ServiceType = await _serviceTypeRepository.GetByName(invoicesViewModel.ServiceType);
-                invoice.TotalValue = invoicesViewModel.Price;
-                invoice.TaxValue = 2.5M;
-
-                if (method == "Create")
-                {
-                    await _invoiceRepository.Create(invoice);
-                }
-
-                if (method == "Update")
-                {
-                    await _invoiceRepository.Update(invoice);
-                }
-
-                return invoice;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return View(invoicesViewModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> New([FromForm] InvoicesViewModel invoicesViewModel)
         {
-            try
-            {
-                Invoice invoice = await HandleInvoice(invoicesViewModel, "Create");
-                invoicesViewModel.Provider = invoice.Provider;
-                invoicesViewModel.Taker = invoice.Taker;
-                invoicesViewModel.Invoice = invoice;
-                return View("Invoice", invoicesViewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            Invoice invoice = await _invoiceService.CreateInvoice(
+                invoicesViewModel.Invoice,
+                invoicesViewModel.Taker,
+                invoicesViewModel.Address
+            );
+
+            return View("Preview", invoice);
         }
 
         [HttpGet]
@@ -215,27 +118,20 @@ namespace InvoiceIssuer.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Invoice([FromQuery] Guid invoiceGuid)
         {
-            try
-            {
-                InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
+            InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
 
-                invoicesViewModel.ServiceTypes = await _serviceTypeRepository.GetAll();
-                invoicesViewModel.CompanyTypes = await _companyTypeRepository.GetAll();
+            invoicesViewModel.ServiceTypes = await _serviceTypeRepository.GetAll();
+            invoicesViewModel.CompanyTypes = await _companyTypeRepository.GetAll();
 
-                Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
-                invoicesViewModel.Invoice = invoice;
+            Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
+            invoicesViewModel.Invoice = invoice;
 
-                Taker taker = await _takerRepository.GetByCI(invoice.Taker.CI);
-                invoicesViewModel.Taker = taker;
-                invoicesViewModel.Address = taker.Address;
-                decimal totalValue = invoice.TotalValue;
+            Taker taker = await _takerRepository.GetByCI(invoice.Taker.CI);
+            invoicesViewModel.Taker = taker;
+            invoicesViewModel.Address = taker.Address;
+            decimal totalValue = invoice.TotalValue;
 
-                return View(invoicesViewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
+            return View(invoicesViewModel);
         }
 
         [HttpGet]
@@ -257,21 +153,21 @@ namespace InvoiceIssuer.Web.Controllers
             return View(invoicesViewModel);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Update([FromForm] InvoicesViewModel invoicesViewModel)
-        {
-            try
-            {
-                Invoice invoice = await HandleInvoice(invoicesViewModel, "Update");
-                invoicesViewModel.Provider = invoice.Provider;
-                invoicesViewModel.Taker = invoice.Taker;
-                invoicesViewModel.Invoice = invoice;
-                return View("Invoice", invoicesViewModel);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
+        // [HttpPost]
+        // public async Task<IActionResult> Update([FromForm] InvoicesViewModel invoicesViewModel)
+        // {
+        //     try
+        //     {
+        //         Invoice invoice = await HandleInvoice(invoicesViewModel, "Update");
+        //         invoicesViewModel.Provider = invoice.Provider;
+        //         invoicesViewModel.Taker = invoice.Taker;
+        //         invoicesViewModel.Invoice = invoice;
+        //         return View("Invoice", invoicesViewModel);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return BadRequest(ex);
+        //     }
+        // }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Repository.Config;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,8 @@ namespace InvoiceIssuer.Repository.Context
             modelBuilder.ApplyConfiguration(new ProviderConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceTypeConfiguration());
             modelBuilder.ApplyConfiguration(new TakerConfiguration());
+
+            //Seeding data
 
             modelBuilder.Entity<CompanyType>().HasData(
                 new CompanyType()
@@ -57,7 +60,8 @@ namespace InvoiceIssuer.Repository.Context
                     Name = "Large Company",
                     Description = "Large company with more branches",
                     TaxRate = 7.5M
-                });
+                }
+            );
 
             modelBuilder.Entity<ServiceType>().HasData(
                 new ServiceType()
@@ -66,6 +70,83 @@ namespace InvoiceIssuer.Repository.Context
                     CreatedAt = DateTime.UtcNow,
                     Name = "Software Development",
                     Description = "Activities and plannings that includes software development, management and project architecture"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Training",
+                    Description = "Lead training sessions, workshops or presentations to help team members improve or learn a certain skill"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Event planning",
+                    Description = "Event planning service for office parties, fundraising events and other corporate functions"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Consulting",
+                    Description = "Consulting services for a variety of projects, including financial budgeting, landscaping, audits and more"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Marketing",
+                    Description = "Marketing services for companies advertise their products, services and brand by creating marketing campaigns"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Waste management",
+                    Description = "Collect garbage and take it away to landfills and recycling facilities"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Construction",
+                    Description = "Service that project and execute construnctions for private and public areas"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Law",
+                    Description = "Draft business agreements, ask for advice or navigate a legal issue"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Health",
+                    Description = "Medical assistance and health procedures"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Security",
+                    Description = "Security services to ensure the safety of its employees and guests"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Finance",
+                    Description = "Financial procedures for companies or peoples"
+                },
+                new ServiceType()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedAt = DateTime.UtcNow,
+                    Name = "Child care",
+                    Description = "Service for child care assistance"
                 }
             );
 

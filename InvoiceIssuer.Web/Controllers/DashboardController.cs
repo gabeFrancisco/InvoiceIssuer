@@ -1,7 +1,7 @@
 using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
+using InvoiceIssuer.Services.Sessions;
 using InvoiceIssuer.Web.Filters;
-using InvoiceIssuer.Web.Sessions;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,26 +20,19 @@ namespace InvoiceIssuer.Web.Controllers
             _loginStorage = loginStorage;
             _addressRepository = addressRepository;
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Info()
         {
-            try
-            {
-                Provider provider = _loginStorage.GetProvider();
-                provider.Address = await _addressRepository.Read(provider.AddressId);
+            Provider provider = _loginStorage.GetProvider();
+            provider.Address = await _addressRepository.Read(provider.AddressId);
 
-                DashInformationViewModel dashInformationViewModel = new DashInformationViewModel()
-                {
-                    Provider = provider
-                };
-
-                return View(dashInformationViewModel);
-            }
-            catch (Exception ex)
+            DashInformationViewModel dashInformationViewModel = new DashInformationViewModel()
             {
-                return View("SessionError");
-            }
+                Provider = provider
+            };
+
+            return View(dashInformationViewModel);
         }
 
         [HttpGet]

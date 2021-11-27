@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E+tbu/P+M+keD9NBX2VIDdA1xsT1WJHvzhRHObxXSw06u8mB17r5pG9kfaidrrfV747fTdQr4rnoR70F6zI+qg==",
+  "dgSpecHash": "YerVL1PiXaNS/L+L+4fGTtW+a0U4UVN1rs8JR9rh1M0IpyK6o1jPReBdIvmwNrPgcFZl/iDSgEYvOE5ts5A0XA==",
   "success": true,
-  "projectFilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
+  "projectFilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -8,5 +8,6 @@ namespace InvoiceIssuer.Domain.Interfaces
     public interface IInvoiceRepository : IBaseRepository<Invoice>
     {
         Task<IEnumerable<Invoice>> GetByProvider(Guid Id);
+        
     }
 }
