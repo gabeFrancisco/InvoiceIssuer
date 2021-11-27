@@ -24,6 +24,7 @@ namespace InvoiceIssuer.Web.Controllers
         private readonly ICompanyTypeRepository _companyTypeRepository;
         private readonly ITakerRepository _takerRepository;
         public InvoicesController(IInvoiceService invoiceService,
+                                    ITakerService takerService,
                                     LoginStorage loginStorage,
                                     IProviderRepository providerRepository,
                                     IAddressRepository addressRepository,
@@ -47,24 +48,14 @@ namespace InvoiceIssuer.Web.Controllers
         {
             return View(new InvoicesViewModel
             {
-                Invoices = await _invoiceService.GetInvoicesByProvider(_loginStorage.ProviderId)
+                Invoices = await _invoiceService.GetAll()
             });
         }
 
         [HttpGet]
         public async Task<IActionResult> GetInvoice(Guid invoiceGuid)
         {
-            Invoice invoice = await _invoiceService.ReadInvoice(invoiceGuid);
-            return View("Preview", invoice);
-        }
-        
-        [Route("/Invoices/GetTakerData/{companyIndex}")]
-        public async Task<IActionResult> GetTakerData([FromRoute] string companyIndex)
-        {
-
-            Taker taker = await _takerRepository.GetByCI(companyIndex);
-            return Json(taker);
-
+            return View("Preview", await _invoiceService.ReadInvoice(invoiceGuid));
         }
 
         [HttpGet]
@@ -123,7 +114,7 @@ namespace InvoiceIssuer.Web.Controllers
             invoicesViewModel.ServiceTypes = await _serviceTypeRepository.GetAll();
             invoicesViewModel.CompanyTypes = await _companyTypeRepository.GetAll();
 
-            Invoice invoice = await _invoiceRepository.Read(invoiceGuid);
+            Invoice invoice = await _invoiceService.ReadInvoice(invoiceGuid);
             invoicesViewModel.Invoice = invoice;
 
             Taker taker = await _takerRepository.GetByCI(invoice.Taker.CI);

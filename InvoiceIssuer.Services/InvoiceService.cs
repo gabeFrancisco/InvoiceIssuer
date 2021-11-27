@@ -37,6 +37,11 @@ namespace InvoiceIssuer.Services
             return await _invoiceRepository.GetByProvider(id);
         }
 
+        public async Task<IEnumerable<Invoice>> GetAll()
+        {
+            return await _invoiceRepository.GetByProvider(_loginStorage.ProviderId);
+        }
+
         public async Task<Invoice> CreateInvoice(Invoice invoice, Taker taker, Address address)
         {
             Invoice _invoice = new Invoice();
@@ -53,7 +58,7 @@ namespace InvoiceIssuer.Services
 
             else
             {
-                _invoice.Taker = new Taker()
+                _invoice.Taker = new Taker
                 {
                     Id = Guid.NewGuid(),
                     CreatedAt = DateTime.UtcNow,
@@ -64,7 +69,7 @@ namespace InvoiceIssuer.Services
 
                     //Get company type name by searching the string of viewModel
                     CompanyType = await _companyTypeRepository.GetByName(taker.CompanyType.Name),
-                    Address = new Address()
+                    Address = new Address
                     {
                         Id = Guid.NewGuid(),
                         CreatedAt = DateTime.UtcNow,
@@ -75,7 +80,7 @@ namespace InvoiceIssuer.Services
                         City = address.City,
                         State = address.State,
                         PostalCode = address.PostalCode
-                    }
+                    },
                 };
             }
             _invoice.ServiceType = await _serviceTypeRepository.GetByName(invoice.ServiceType.Name);

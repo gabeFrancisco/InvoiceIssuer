@@ -43,7 +43,7 @@ function getTakerData() {
     `
 
   } else {
-    let loadData = fetch(`/Invoices/GetTakerData/${takerCi}`)
+    let loadData = fetch(`/Taker/GetTakerData/${takerCi}`)
       .then(res => res.json())
       .then(function (data) {
         document.getElementById('invoiceWarnings').innerHTML = " "

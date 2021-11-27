@@ -46,6 +46,7 @@ namespace InvoiceIssuer.Web
             services.AddScoped<ITakerRepository, TakerRepository>();
 
             services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<ITakerService, TakerService>();
 
             services.AddSession(options =>
             {
