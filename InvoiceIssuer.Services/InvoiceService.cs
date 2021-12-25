@@ -77,7 +77,7 @@ namespace InvoiceIssuer.Services
 
             else
             {
-                _invoice.Taker = new Taker
+                var takeInstance = new Taker
                 {
                     Id = Guid.NewGuid(),
                     CreatedAt = DateTime.UtcNow,
@@ -101,6 +101,8 @@ namespace InvoiceIssuer.Services
                         PostalCode = address.PostalCode
                     },
                 };
+
+                _invoice.Taker = takeInstance;
             }
             _invoice.ServiceType = await _serviceTypeRepository.GetByName(invoice.ServiceType.Name);
             _invoice.TaxValue = 2.5M;
