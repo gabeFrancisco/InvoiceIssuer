@@ -120,6 +120,9 @@ namespace InvoiceIssuer.Services
         {
             Invoice invoiceDb = await _invoiceRepository.Read(invoice.Id);
 
+            if(invoiceDb.CreatedAt.Value.Month != DateTime.UtcNow.Month)
+                throw new InvalidOperationException("The requested invoice is out of date for the update operation!");
+
             invoiceDb.Title = invoice.Title;
             invoiceDb.Description = invoice.Description;
             invoice.TotalValue = invoice.TotalValue;
@@ -127,7 +130,6 @@ namespace InvoiceIssuer.Services
             await _invoiceRepository.Update(invoiceDb);
             return invoiceDb;
         }
-
         public Task<bool> DeleteInvoice(Guid id)
         {
             throw new NotImplementedException();
