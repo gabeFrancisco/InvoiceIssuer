@@ -36,7 +36,7 @@ namespace InvoiceIssuer.Domain.Interfaces.ServicesInterfaces
         /// <param name="taker"></param>
         /// <param name="address"></param>
         /// <returns></returns>
-        Task<Invoice> UpdateInvoice(Invoice invoice, Taker taker, Address address);
+        Task<Invoice> UpdateInvoice(Invoice invoice);
         /// <summary>
         /// Tries to remove an invoice from the system
         /// </summary>

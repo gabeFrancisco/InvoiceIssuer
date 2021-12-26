@@ -5,6 +5,13 @@
 
 <script src="~/js/invoice.js"></script>
 <h3 class="text-center mt-3 mb-2">Update Invoice</h3>
+<div class="alert alert-dismissible alert-warning">
+    <p class="mb-0">
+    <h4>Warning!</h4>
+    You can only update the invoice's description, items and values! To update the taker you need to cancel this
+    invoice and create a new one!
+    </p>
+</div>
 
 <div class="dashboard-menu bg-light border-top border-bottom">
     @* <div class="d-flex m-2">
@@ -12,7 +19,8 @@
         only delete is permitted</small>
         </div> *@
     <div class="d-flex m-2">
-        <span>Invoice issued in - <b><i id="issuedDate">@Model.Invoice.Date</i></b></span>
+        <span>Invoice issued in - <b><i id="issuedDate">@Model.Invoice.Date</i></b> Number: @Model.Invoice.Number /
+            @Model.Invoice.Date.Year</span>
     </div>
 </div>
 
@@ -40,14 +48,16 @@
                 <div id="taker" class="tab-pane active">
                     <h5>Taker Information</h5>
                     <hr>
-
+                    <input type="text" class="form-control" id="invoiceNumber" asp-for="Invoice.Number" hidden>
+                    <input type="text" class="form-control" id="invoiceId" asp-for="Invoice.Id" hidden>
                     <div class="row">
                         <div class="col-3">
                             <div class="input-group input-group-sm mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">CI</span>
                                 </div>
-                                <input type="text" class="form-control" id="ci" asp-for="Taker.CI" maxlength="7">
+                                <input type="text" class="form-control" id="ci" asp-for="Taker.CI" maxlength="7"
+                                    asp-for="Taker.CI" readonly>
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-primary" id="searchTakerBtn"
                                         onclick="getTakerData()"><i class="fas fa-search"></i></button>
@@ -63,8 +73,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Comercial Name</span>
                                 </div>
-                                <input type="text" class="form-control" id="comercialName"
-                                    asp-for="Taker.ComercialName">
+                                <input type="text" class="form-control" id="comercialName" asp-for="Taker.ComercialName"
+                                    readonly>
+
                             </div>
                         </div>
                     </div>
@@ -74,15 +85,16 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Phone</span>
                                 </div>
-                                <input type="tel" class="form-control" id="phone" asp-for="Taker.Phone">
+                                <input readonly type="tel" class="form-control" id="phone" asp-for="Taker.Phone">
                             </div>
+
                         </div>
                         <div class="col">
                             <div class="input-group input-group-sm mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">E-mail</span>
                                 </div>
-                                <input type="email" class="form-control" id="takerEmail" asp-for="Taker.Email">
+                                <input readonly type="email" class="form-control" id="takerEmail" asp-for="Taker.Email">
                             </div>
                         </div>
                     </div>
@@ -92,7 +104,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Road</span>
                                 </div>
-                                <input type="text" class="form-control" id="road" asp-for="Address.Road">
+                                <input readonly type="text" class="form-control" id="road" asp-for="Address.Road">
                             </div>
 
                         </div>
@@ -101,7 +113,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Number</span>
                                 </div>
-                                <input type="text" class="form-control" id="roadNumber" asp-for="Address.Number">
+                                <input readonly type="text" class="form-control" id="roadNumber"
+                                    asp-for="Address.Number">
                             </div>
                         </div>
                         <div class="col-3">
@@ -109,7 +122,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Complement</span>
                                 </div>
-                                <input type="text" class="form-control" id="complement" asp-for="Address.Complement">
+                                <input readonly type="text" class="form-control" id="complement"
+                                    asp-for="Address.Complement">
                             </div>
                         </div>
                     </div>
@@ -120,7 +134,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Block</span>
                                 </div>
-                                <input type="text" class="form-control" id="block" asp-for="Address.Block">
+                                <input readonly type="text" class="form-control" id="block" asp-for="Address.Block">
                             </div>
 
                         </div>
@@ -129,7 +143,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">City</span>
                                 </div>
-                                <input type="text" class="form-control" id="city" asp-for="Address.City">
+                                <input readonly type="text" class="form-control" id="city" asp-for="Address.City">
                                 <small class="form-text text-muted">City is not standardized and you can type any you
                                     want.</small>
                             </div>
@@ -139,7 +153,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">State</span>
                                 </div>
-                                <input type="text" class="form-control" id="state" asp-for="Address.State">
+                                <input readonly type="text" class="form-control" id="state" asp-for="Address.State">
                                 <small class="form-text text-muted">Same as above, you can type any state of your
                                     country.</small>
                             </div>
@@ -150,7 +164,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Postal Code</span>
                                 </div>
-                                <input type="text" class="form-control" id="postalCode" asp-for="Address.PostalCode">
+                                <input readonly type="text" class="form-control" id="postalCode"
+                                    asp-for="Address.PostalCode">
                             </div>
                         </div>
 
@@ -159,7 +174,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Company Type</span>
                                 </div>
-                                <select class="form-select" id="companySelect" asp-for="CompanyType">
+                                <select disabled class="form-select" id="companySelect"
+                                    asp-for="Taker.CompanyType.Name">
                                     @foreach (var companyType in Model.CompanyTypes)
                                     {
                                         <option id="companyType">@companyType.Name</option>
@@ -179,7 +195,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Title</span>
                                 </div>
-                                <input type="text" class="form-control" id="title" asp-for="Invoice.ServiceType">
+                                <input type="text" class="form-control" id="title" asp-for="Invoice.Title">
                             </div>
                         </div>
                         <div class="col-5">
@@ -187,7 +203,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Service Type</span>
                                 </div>
-                                <select class="form-select" id="serviceSelect" asp-for="ServiceType">
+                                <select class="form-select" id="serviceSelect" asp-for="Invoice.ServiceType.Name">
                                     @foreach (var serviceType in Model.ServiceTypes)
                                     {
                                         <option id="serviceType">@serviceType.Name</option>

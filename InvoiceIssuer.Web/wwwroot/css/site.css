@@ -226,6 +226,11 @@ tr:hover {
     cursor: pointer;
 }
 
+tbody tr:hover {
+    background-color: #aacef6;
+    color: #fff !important;
+}
+
 .invoice-nav {
     display: flex;
     flex-direction: row;

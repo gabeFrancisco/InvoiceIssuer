@@ -53,7 +53,7 @@ namespace InvoiceIssuer.Services
 
             return monthList;
         }
-        
+
         public async Task<decimal> GetProviderTotalIncome()
         {
             IEnumerable<Invoice> invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
@@ -63,8 +63,8 @@ namespace InvoiceIssuer.Services
         }
         public async Task<Invoice> CreateInvoice(Invoice invoice, Taker taker, Address address)
         {
-            Invoice _invoice = new Invoice();
-            _invoice = invoice;
+            Invoice _invoice = invoice;
+
             var invoices = await _invoiceRepository.GetByProvider(_loginStorage.GetProvider().Id);
             _invoice.Number = invoices.Where(x => x.Date.Year.Equals(DateTime.UtcNow.Year)).Count() + 1;
 
@@ -116,9 +116,16 @@ namespace InvoiceIssuer.Services
             return await _invoiceRepository.Read(id);
         }
 
-        public Task<Invoice> UpdateInvoice(Invoice invoice, Taker taker, Address address)
+        public async Task<Invoice> UpdateInvoice(Invoice invoice)
         {
-            throw new NotImplementedException();
+            Invoice invoiceDb = await _invoiceRepository.Read(invoice.Id);
+
+            invoiceDb.Title = invoice.Title;
+            invoiceDb.Description = invoice.Description;
+            invoice.TotalValue = invoice.TotalValue;
+
+            await _invoiceRepository.Update(invoiceDb);
+            return invoiceDb;
         }
 
         public Task<bool> DeleteInvoice(Guid id)

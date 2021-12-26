@@ -89,7 +89,7 @@ namespace InvoiceIssuer.Repository.Repositories
             }
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public virtual async Task<TEntity> Update(TEntity entity)
         {
             try
             {

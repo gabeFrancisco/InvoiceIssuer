@@ -46,7 +46,7 @@ namespace InvoiceIssuer.Web.Controllers
         public async Task<IActionResult> GetInvoice(Guid invoiceGuid)
         {
             return View("Preview", await _invoiceService.ReadInvoice(invoiceGuid));
-        }     
+        }
 
         [HttpGet]
         public async Task<IActionResult> New()
@@ -66,13 +66,11 @@ namespace InvoiceIssuer.Web.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            Invoice invoice = await _invoiceService.CreateInvoice(
+            return View("Preview", await _invoiceService.CreateInvoice(
                 invoicesViewModel.Invoice,
                 invoicesViewModel.Taker,
                 invoicesViewModel.Address
-            );
-
-            return View("Preview", invoice);
+            ));
         }
 
         [HttpGet]
@@ -95,7 +93,7 @@ namespace InvoiceIssuer.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Update(Guid invoiceGuid)
+        public async Task<IActionResult> Update([FromQuery] Guid invoiceGuid)
         {
             InvoicesViewModel invoicesViewModel = new InvoicesViewModel();
 
@@ -113,21 +111,13 @@ namespace InvoiceIssuer.Web.Controllers
             return View(invoicesViewModel);
         }
 
-        // [HttpPost]
-        // public async Task<IActionResult> Update([FromForm] InvoicesViewModel invoicesViewModel)
-        // {
-        //     try
-        //     {
-        //         Invoice invoice = await HandleInvoice(invoicesViewModel, "Update");
-        //         invoicesViewModel.Provider = invoice.Provider;
-        //         invoicesViewModel.Taker = invoice.Taker;
-        //         invoicesViewModel.Invoice = invoice;
-        //         return View("Invoice", invoicesViewModel);
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return BadRequest(ex);
-        //     }
-        // }
+        [HttpPost]
+        public async Task<IActionResult> Update([FromForm] InvoicesViewModel invoicesViewModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+                
+            return View("Preview", await _invoiceService.UpdateInvoice(invoicesViewModel.Invoice));
+        }
     }
 }

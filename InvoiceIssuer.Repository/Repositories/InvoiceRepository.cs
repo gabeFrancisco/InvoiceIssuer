@@ -20,5 +20,13 @@ namespace InvoiceIssuer.Repository.Repositories
         //     .SingleOrDefaultAsync();
 
         public async Task<IEnumerable<Invoice>> GetByProvider(Guid Id) => await _context.Invoices.Where(x => x.ProviderId.Equals(Id)).ToListAsync();
+        // public new async Task<Invoice> Update(Invoice invoice){
+            
+
+        //     _context.Set<Invoice>().Update(invoice);
+        //     await _context.SaveChangesAsync();
+
+        //     return invoice;
+        // }
     }
 }
