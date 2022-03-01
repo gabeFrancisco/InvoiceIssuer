@@ -29,6 +29,10 @@ namespace InvoiceIssuer.Repository.Config
             builder.Property(x => x.Number)
                 .IsRequired();
             
+            builder.Property(x => x.IsCanceled)
+                .HasColumnType("bool")
+                .IsRequired();
+            
             builder.HasOne(x => x.Taker);
             builder.HasOne(x => x.Provider);
             builder.HasOne(x => x.ServiceType);

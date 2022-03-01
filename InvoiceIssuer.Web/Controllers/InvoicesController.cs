@@ -6,13 +6,10 @@ using InvoiceIssuer.Web.Filters;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace InvoiceIssuer.Web.Controllers
 {
-    [UserAuthorizationAttribute]
     public class InvoicesController : Controller
     {
         private readonly IInvoiceService _invoiceService;
@@ -33,6 +30,7 @@ namespace InvoiceIssuer.Web.Controllers
             _loginStorage = loginStorage;
         }
 
+        [UserAuthorizationAttribute]
         [HttpGet]
         public async Task<IActionResult> List()
         {
@@ -48,6 +46,7 @@ namespace InvoiceIssuer.Web.Controllers
             return View("Preview", await _invoiceService.ReadInvoice(invoiceGuid));
         }
 
+        [UserAuthorizationAttribute]
         [HttpGet]
         public async Task<IActionResult> New()
         {
@@ -60,6 +59,7 @@ namespace InvoiceIssuer.Web.Controllers
             return View(invoicesViewModel);
         }
 
+        [UserAuthorizationAttribute]
         [HttpPost]
         public async Task<IActionResult> New([FromForm] InvoicesViewModel invoicesViewModel)
         {
@@ -73,6 +73,7 @@ namespace InvoiceIssuer.Web.Controllers
             ));
         }
 
+        [UserAuthorizationAttribute]
         [HttpGet]
         public async Task<IActionResult> Invoice([FromQuery] Guid invoiceGuid)
         {
@@ -92,6 +93,7 @@ namespace InvoiceIssuer.Web.Controllers
             return View(invoicesViewModel);
         }
 
+        [UserAuthorizationAttribute]
         [HttpGet]
         public async Task<IActionResult> Update([FromQuery] Guid invoiceGuid)
         {
@@ -110,7 +112,8 @@ namespace InvoiceIssuer.Web.Controllers
 
             return View(invoicesViewModel);
         }
-
+        
+        [UserAuthorizationAttribute]
         [HttpPost]
         public async Task<IActionResult> Update([FromForm] InvoicesViewModel invoicesViewModel)
         {

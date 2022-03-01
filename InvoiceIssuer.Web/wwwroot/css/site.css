@@ -226,9 +226,16 @@ tr:hover {
     cursor: pointer;
 }
 
+.tr-green {
+    background-color: #b9ffce;
+}
+
+.tr-red {
+    background-color: #fcd5d5;
+}
+
 tbody tr:hover {
     background-color: #aacef6;
-    color: #fff !important;
 }
 
 .invoice-nav {
@@ -318,4 +325,8 @@ tbody tr:hover {
 
 .pricing-content {
     padding: 0px 30px 0px 30px;
+}
+
+.text-red{
+    color: #d80202;
 }

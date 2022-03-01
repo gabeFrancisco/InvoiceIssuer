@@ -6377,11 +6377,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
+      "projectUniqueName": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
       "projectName": "InvoiceIssuer.Web",
-      "projectPath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
+      "projectPath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
       "packagesPath": "/home/gabefrank/.nuget/packages/",
-      "outputPath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/",
+      "outputPath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/gabefrank/.nuget/NuGet/NuGet.Config"
@@ -6395,11 +6395,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/InvoiceIssuer.Repository.csproj": {
-              "projectPath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/InvoiceIssuer.Repository.csproj"
+            "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/InvoiceIssuer.Repository.csproj": {
+              "projectPath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/InvoiceIssuer.Repository.csproj"
             },
-            "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/InvoiceIssuer.Services.csproj": {
-              "projectPath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/InvoiceIssuer.Services.csproj"
+            "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/InvoiceIssuer.Services.csproj": {
+              "projectPath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Services/InvoiceIssuer.Services.csproj"
             }
           }
         }
@@ -6450,7 +6450,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.415/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.416/RuntimeIdentifierGraph.json"
       }
     }
   }

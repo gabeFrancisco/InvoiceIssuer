@@ -1,5 +1,5 @@
 {
-  "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
+  "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14402,88 +14402,88 @@
   "RootNamespace": "InvoiceIssuer.Web",
   "Documents": [
     {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/New.cshtml",
-      "TargetPath": "Views\\Invoices\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/Invoice.cshtml",
-      "TargetPath": "Views\\Invoices\\Invoice.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_Dashboard.cshtml",
-      "TargetPath": "Views\\Shared\\_Dashboard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/SessionError.cshtml",
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/SessionError.cshtml",
       "TargetPath": "Views\\Shared\\SessionError.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/Preview.cshtml",
-      "TargetPath": "Views\\Invoices\\Preview.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Example.cshtml",
-      "TargetPath": "Views\\Dashboard\\Example.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/List.cshtml",
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/List.cshtml",
       "TargetPath": "Views\\Invoices\\List.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/Update.cshtml",
-      "TargetPath": "Views\\Invoices\\Update.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Info.cshtml",
-      "TargetPath": "Views\\Dashboard\\Info.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_InvoicePreview.cshtml",
-      "TargetPath": "Views\\Shared\\_InvoicePreview.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Home/Index.cshtml",
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Home/Privacy.cshtml",
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_Dashboard.cshtml",
+      "TargetPath": "Views\\Shared\\_Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/Update.cshtml",
+      "TargetPath": "Views\\Invoices\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/Preview.cshtml",
+      "TargetPath": "Views\\Invoices\\Preview.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Info.cshtml",
+      "TargetPath": "Views\\Dashboard\\Info.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_InvoicePreview.cshtml",
+      "TargetPath": "Views\\Shared\\_InvoicePreview.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/Invoice.cshtml",
+      "TargetPath": "Views\\Invoices\\Invoice.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Invoices/New.cshtml",
+      "TargetPath": "Views\\Invoices\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Dashboard/Example.cshtml",
+      "TargetPath": "Views\\Dashboard\\Example.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],

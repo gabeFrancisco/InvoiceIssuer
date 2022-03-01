@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj": {}
+    "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj": {}
   },
   "projects": {
-    "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj": {
+    "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
+        "projectUniqueName": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
         "projectName": "InvoiceIssuer.Domain",
-        "projectPath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
+        "projectPath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/InvoiceIssuer.Domain.csproj",
         "packagesPath": "/home/gabefrank/.nuget/packages/",
-        "outputPath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/obj/",
+        "outputPath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/gabefrank/.nuget/NuGet/NuGet.Config"
@@ -50,7 +50,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.415/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.416/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KzneBRM6RuoOMs6YJqx5RO98hmeAO1aXMbX+blgP7ABTrVbBYTQTYHmmPBenPEL3V8nPhri9Eeq1YyBbJvZkEw==",
+  "dgSpecHash": "bKFUV0GCTDhAlu7LLJFpnCXRjsSX3j29UdekSEdst1KY8uRg/v6TSF5FlhNwcc4n+LxVi0jyGxmOWEOCdvV3+w==",
   "success": true,
-  "projectFilePath": "/media/gabefrank/GENESIS/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
+  "projectFilePath": "/mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
   "expectedPackageFiles": [
     "/home/gabefrank/.nuget/packages/castle.core/4.4.0/castle.core.4.4.0.nupkg.sha512",
     "/home/gabefrank/.nuget/packages/microsoft.aspnetcore.http/2.2.2/microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
