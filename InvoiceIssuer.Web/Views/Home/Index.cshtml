@@ -58,6 +58,19 @@
                     </form>
                 </div>
             </div>
+            <div class="border card-signin">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Public Search</h5>
+                    <form class="form-signin" method="POST" asp-action="SearchInvoice">
+                        <div class="form-label-group">
+                            <label class="mb-2 mt-2" for="inputCI">Invoice GUID</label>
+                            <input type="text" id="inputGuid" class="form-control" placeholder="GUID" asp-for="InvoiceGuid"
+                                 required autofocus>
+                        </div>
+                        <button class="btn btn-success btn-block mt-2" type="submit">Find</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

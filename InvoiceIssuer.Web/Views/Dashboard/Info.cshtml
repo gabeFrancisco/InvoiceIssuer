@@ -4,8 +4,7 @@
 }
 
 <div class="m-4 p-4">
-
-	<div class="company-info">
+	<div class="company-info shadow p-2 mb-5 border rounded invoices-info-dashboard">
 		<div class="m-2">
 			<h2>@Model.Provider.ComercialName</h2>
 			<h5>CI nº @Model.Provider.CI</h5>
@@ -27,7 +26,7 @@
 	<hr>
 	<div class="shadow p-2 mb-5 border rounded invoices-info-dashboard">
 		<h4 class="text-center">Total Invoices Value:
-			<b>$<span id="totalIncome"></span></b>
+			<b><span id="totalIncome" class="text-success"></span></b>
 		</h4>
 		<script src="~/js/chart.js"></script>
 		<div id="chart_div" style="width: 100%; height: 500px;"></div>

@@ -11,15 +11,7 @@ function getTotalIncome() {
   fetch("/api/Invoices/GetProviderTotalIncome")
     .then((res) => res.json())
     .then(function (data) {
-      for (let i = 0.0; i <= data; i++) {
-        setTimeout(function () {
-          document.getElementById("totalIncome").innerHTML = i.toFixed(2);
-          if (i == Math.floor(data)) {
-            console.log(true);
-            document.getElementById("totalIncome").innerHTML = data.toFixed(2);
-          }
-        }, 50);
-      }
+      document.getElementById("totalIncome").innerHTML = `$${data.toFixed(2)}`;
     });
 }
 

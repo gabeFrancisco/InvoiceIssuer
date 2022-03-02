@@ -18,10 +18,10 @@ namespace InvoiceIssuer.Web.Controllers
         private readonly ITakerService _takerService;
         private readonly LoginStorage _loginStorage;
         public InvoicesController(IInvoiceService invoiceService,
-                                    IServiceTypeService serviceTypeService,
-                                    ICompanyTypeService companyTypeService,
-                                    ITakerService takerService,
-                                    LoginStorage loginStorage)
+                                  IServiceTypeService serviceTypeService,
+                                  ICompanyTypeService companyTypeService,
+                                  ITakerService takerService,
+                                  LoginStorage loginStorage)
         {
             _invoiceService = invoiceService;
             _serviceTypeService = serviceTypeService;
@@ -112,7 +112,7 @@ namespace InvoiceIssuer.Web.Controllers
 
             return View(invoicesViewModel);
         }
-        
+
         [UserAuthorizationAttribute]
         [HttpPost]
         public async Task<IActionResult> Update([FromForm] InvoicesViewModel invoicesViewModel)

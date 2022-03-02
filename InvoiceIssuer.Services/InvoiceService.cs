@@ -125,7 +125,7 @@ namespace InvoiceIssuer.Services
 
             invoiceDb.Title = invoice.Title;
             invoiceDb.Description = invoice.Description;
-            invoice.TotalValue = invoice.TotalValue;
+            invoiceDb.TotalValue = invoice.TotalValue;
 
             await _invoiceRepository.Update(invoiceDb);
             return invoiceDb;
