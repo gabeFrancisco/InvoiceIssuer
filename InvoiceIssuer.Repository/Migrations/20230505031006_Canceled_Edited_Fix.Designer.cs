@@ -3,14 +3,16 @@ using System;
 using InvoiceIssuer.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InvoiceIssuer.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230505031006_Canceled_Edited_Fix")]
+    partial class Canceled_Edited_Fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,32 +109,32 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2811bb95-a3d2-4792-8c6f-4b752c74aeac"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(5422),
+                            Id = new Guid("d6bcb227-e4ed-4952-baef-e9b70d235550"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 285, DateTimeKind.Utc).AddTicks(2410),
                             Description = "This type of company is free from tax applications",
                             Name = "Individual Business",
                             TaxRate = 0.0m
                         },
                         new
                         {
-                            Id = new Guid("2aeb85cb-c6ce-49a5-86f7-2f8e42bdc9b1"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(7460),
+                            Id = new Guid("73bfea7f-fecf-4d59-8b37-ca802d10c6f7"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 285, DateTimeKind.Utc).AddTicks(4590),
                             Description = "Small company that is beginning",
                             Name = "Small Company",
                             TaxRate = 2.5m
                         },
                         new
                         {
-                            Id = new Guid("1e9ac0da-bef6-4bfa-8101-bf09517492b2"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(7515),
+                            Id = new Guid("b48b3a7a-368a-4e54-88c1-5a3415d116e9"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 285, DateTimeKind.Utc).AddTicks(4644),
                             Description = "Mid-port company",
                             Name = "Medium Company",
                             TaxRate = 4.5m
                         },
                         new
                         {
-                            Id = new Guid("9ac99558-5551-4d8e-9d5d-10bbb64cf0d9"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(7538),
+                            Id = new Guid("84c75355-4148-455e-bbba-059ff4d2dc0f"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 285, DateTimeKind.Utc).AddTicks(4667),
                             Description = "Large company with more branches",
                             Name = "Large Company",
                             TaxRate = 7.5m
@@ -155,10 +157,10 @@ namespace InvoiceIssuer.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<bool>("IsEditable")
+                    b.Property<bool>("IsCanceled")
                         .HasColumnType("bool");
 
-                    b.Property<bool>("IsNegate")
+                    b.Property<bool>("IsEditable")
                         .HasColumnType("bool");
 
                     b.Property<int>("Number")
@@ -281,85 +283,85 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1e5caaec-1b6f-4157-9249-c922fdbbf047"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 603, DateTimeKind.Utc).AddTicks(9698),
+                            Id = new Guid("ead2aabd-dc8c-496e-9284-6ddb5ce02498"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(6837),
                             Description = "Activities and plannings that includes software development, management and project architecture",
                             Name = "Software Development"
                         },
                         new
                         {
-                            Id = new Guid("d5950e9f-c4e2-48d5-80c3-137844483d6a"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(546),
+                            Id = new Guid("87486c90-8354-418c-816b-0c0dc04cb8ab"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7579),
                             Description = "Lead training sessions, workshops or presentations to help team members improve or learn a certain skill",
                             Name = "Training"
                         },
                         new
                         {
-                            Id = new Guid("29c7532d-e410-4ee4-a39c-a452e792302a"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(593),
+                            Id = new Guid("146ded85-36b5-4e00-8bb6-8e0a19c1f031"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7625),
                             Description = "Event planning service for office parties, fundraising events and other corporate functions",
                             Name = "Event planning"
                         },
                         new
                         {
-                            Id = new Guid("3f0d1734-90a3-4231-8bff-45b9768c337e"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(616),
+                            Id = new Guid("dc88a24f-06e8-466f-8c46-581f04162e93"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7648),
                             Description = "Consulting services for a variety of projects, including financial budgeting, landscaping, audits and more",
                             Name = "Consulting"
                         },
                         new
                         {
-                            Id = new Guid("5a0ceb09-d079-445f-8ea3-ef6f770167b3"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(638),
+                            Id = new Guid("81e7da92-379b-4e5d-9305-4c33329a90bc"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7671),
                             Description = "Marketing services for companies advertise their products, services and brand by creating marketing campaigns",
                             Name = "Marketing"
                         },
                         new
                         {
-                            Id = new Guid("a85cbdee-b062-4d2c-8467-93ce6f07c507"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(661),
+                            Id = new Guid("abe5922d-a921-4d8e-93d7-7f06e77e7f75"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7693),
                             Description = "Collect garbage and take it away to landfills and recycling facilities",
                             Name = "Waste management"
                         },
                         new
                         {
-                            Id = new Guid("8756c4b8-5aaa-4566-8828-2f3d796f5b54"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(683),
+                            Id = new Guid("fcda8ca6-b4d6-4060-82ee-afae08efa1d4"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7716),
                             Description = "Service that project and execute construnctions for private and public areas",
                             Name = "Construction"
                         },
                         new
                         {
-                            Id = new Guid("8ef50f16-d1d6-4d3a-8c34-ad8a225d7c83"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(706),
+                            Id = new Guid("3c180d52-8505-4b5c-b138-ad641ae54427"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7739),
                             Description = "Draft business agreements, ask for advice or navigate a legal issue",
                             Name = "Law"
                         },
                         new
                         {
-                            Id = new Guid("df821a7a-1530-46ef-b161-aca177a115b1"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(729),
+                            Id = new Guid("33994095-8abf-4a02-9792-4a2859ce6c84"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7761),
                             Description = "Medical assistance and health procedures",
                             Name = "Health"
                         },
                         new
                         {
-                            Id = new Guid("df18d613-dcfb-442c-bd43-f6729cbd9978"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(752),
+                            Id = new Guid("e9ee0c8f-3c2a-4114-9415-da8df238d513"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7784),
                             Description = "Security services to ensure the safety of its employees and guests",
                             Name = "Security"
                         },
                         new
                         {
-                            Id = new Guid("bf0768a8-1c3c-42f1-9635-b0c545bf2669"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(775),
+                            Id = new Guid("4c4e92af-ec1f-4d13-8442-335897167f19"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7807),
                             Description = "Financial procedures for companies or peoples",
                             Name = "Finance"
                         },
                         new
                         {
-                            Id = new Guid("77af942e-50e1-4c64-9dc6-cf5a6768d4e0"),
-                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(797),
+                            Id = new Guid("af4b74c9-1bba-4a45-84e7-95785ef655a2"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 10, 6, 286, DateTimeKind.Utc).AddTicks(7829),
                             Description = "Service for child care assistance",
                             Name = "Child care"
                         });
