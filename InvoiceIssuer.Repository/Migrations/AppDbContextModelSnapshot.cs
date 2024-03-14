@@ -107,32 +107,32 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d478155c-b418-40fb-a004-990d1f1b2133"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(7055),
+                            Id = new Guid("2811bb95-a3d2-4792-8c6f-4b752c74aeac"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(5422),
                             Description = "This type of company is free from tax applications",
                             Name = "Individual Business",
                             TaxRate = 0.0m
                         },
                         new
                         {
-                            Id = new Guid("dcd648fa-ff87-4dc9-89ca-67ce867901dd"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(9408),
+                            Id = new Guid("2aeb85cb-c6ce-49a5-86f7-2f8e42bdc9b1"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(7460),
                             Description = "Small company that is beginning",
                             Name = "Small Company",
                             TaxRate = 2.5m
                         },
                         new
                         {
-                            Id = new Guid("82fa412c-8fa4-43b2-af0d-4cc1f2fd34d4"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(9470),
+                            Id = new Guid("1e9ac0da-bef6-4bfa-8101-bf09517492b2"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(7515),
                             Description = "Mid-port company",
                             Name = "Medium Company",
                             TaxRate = 4.5m
                         },
                         new
                         {
-                            Id = new Guid("06400ac3-acd0-42fc-8866-c85b481eceb4"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 270, DateTimeKind.Utc).AddTicks(9495),
+                            Id = new Guid("9ac99558-5551-4d8e-9d5d-10bbb64cf0d9"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 602, DateTimeKind.Utc).AddTicks(7538),
                             Description = "Large company with more branches",
                             Name = "Large Company",
                             TaxRate = 7.5m
@@ -154,6 +154,12 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<bool>("IsEditable")
+                        .HasColumnType("bool");
+
+                    b.Property<bool>("IsNegate")
+                        .HasColumnType("bool");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
@@ -275,10 +281,87 @@ namespace InvoiceIssuer.Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1015c5c0-b4d7-4024-86ea-6a262924f6c5"),
-                            CreatedAt = new DateTime(2021, 9, 19, 16, 9, 2, 272, DateTimeKind.Utc).AddTicks(1065),
+                            Id = new Guid("1e5caaec-1b6f-4157-9249-c922fdbbf047"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 603, DateTimeKind.Utc).AddTicks(9698),
                             Description = "Activities and plannings that includes software development, management and project architecture",
                             Name = "Software Development"
+                        },
+                        new
+                        {
+                            Id = new Guid("d5950e9f-c4e2-48d5-80c3-137844483d6a"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(546),
+                            Description = "Lead training sessions, workshops or presentations to help team members improve or learn a certain skill",
+                            Name = "Training"
+                        },
+                        new
+                        {
+                            Id = new Guid("29c7532d-e410-4ee4-a39c-a452e792302a"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(593),
+                            Description = "Event planning service for office parties, fundraising events and other corporate functions",
+                            Name = "Event planning"
+                        },
+                        new
+                        {
+                            Id = new Guid("3f0d1734-90a3-4231-8bff-45b9768c337e"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(616),
+                            Description = "Consulting services for a variety of projects, including financial budgeting, landscaping, audits and more",
+                            Name = "Consulting"
+                        },
+                        new
+                        {
+                            Id = new Guid("5a0ceb09-d079-445f-8ea3-ef6f770167b3"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(638),
+                            Description = "Marketing services for companies advertise their products, services and brand by creating marketing campaigns",
+                            Name = "Marketing"
+                        },
+                        new
+                        {
+                            Id = new Guid("a85cbdee-b062-4d2c-8467-93ce6f07c507"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(661),
+                            Description = "Collect garbage and take it away to landfills and recycling facilities",
+                            Name = "Waste management"
+                        },
+                        new
+                        {
+                            Id = new Guid("8756c4b8-5aaa-4566-8828-2f3d796f5b54"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(683),
+                            Description = "Service that project and execute construnctions for private and public areas",
+                            Name = "Construction"
+                        },
+                        new
+                        {
+                            Id = new Guid("8ef50f16-d1d6-4d3a-8c34-ad8a225d7c83"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(706),
+                            Description = "Draft business agreements, ask for advice or navigate a legal issue",
+                            Name = "Law"
+                        },
+                        new
+                        {
+                            Id = new Guid("df821a7a-1530-46ef-b161-aca177a115b1"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(729),
+                            Description = "Medical assistance and health procedures",
+                            Name = "Health"
+                        },
+                        new
+                        {
+                            Id = new Guid("df18d613-dcfb-442c-bd43-f6729cbd9978"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(752),
+                            Description = "Security services to ensure the safety of its employees and guests",
+                            Name = "Security"
+                        },
+                        new
+                        {
+                            Id = new Guid("bf0768a8-1c3c-42f1-9635-b0c545bf2669"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(775),
+                            Description = "Financial procedures for companies or peoples",
+                            Name = "Finance"
+                        },
+                        new
+                        {
+                            Id = new Guid("77af942e-50e1-4c64-9dc6-cf5a6768d4e0"),
+                            CreatedAt = new DateTime(2023, 5, 5, 3, 29, 24, 604, DateTimeKind.Utc).AddTicks(797),
+                            Description = "Service for child care assistance",
+                            Name = "Child care"
                         });
                 });
 

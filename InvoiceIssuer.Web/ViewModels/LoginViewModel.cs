@@ -11,5 +11,7 @@ namespace InvoiceIssuer.Web.ViewModels
         [Required]
         [MinLength(6)]
         public string Password { get; set; }
+
+        public string InvoiceGuid { get; set; }
     }
 }

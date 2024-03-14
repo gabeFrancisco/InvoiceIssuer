@@ -6,8 +6,8 @@ namespace InvoiceIssuer.Domain.Entities
     public abstract class BaseEntity
     {
         [Key]
-        public Guid Id { get; set; }
-        private DateTime? _createdAt;
+        public Guid Id { get; set; } = Guid.NewGuid();
+        private DateTime? _createdAt = DateTime.UtcNow;
         public DateTime? CreatedAt
         {
             get { return this._createdAt; }

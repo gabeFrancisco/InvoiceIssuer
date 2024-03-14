@@ -1,8 +1,10 @@
 ﻿using InvoiceIssuer.Domain.Entities;
 using InvoiceIssuer.Domain.Interfaces;
-using InvoiceIssuer.Web.Sessions;
+using InvoiceIssuer.Domain.Interfaces.ServicesInterfaces;
+using InvoiceIssuer.Services.Sessions;
 using InvoiceIssuer.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace InvoiceIssuer.Web.Controllers
@@ -11,11 +13,15 @@ namespace InvoiceIssuer.Web.Controllers
     {
         private readonly LoginStorage _loginStorage;
         private readonly IProviderRepository _providerRepository;
+        private readonly IInvoiceService _invoiceService;
 
-        public HomeController(LoginStorage loginStorage, IProviderRepository providerRepository)
+        public HomeController(LoginStorage loginStorage,
+                              IProviderRepository providerRepository,
+                              IInvoiceService invoiceService)
         {
             _loginStorage = loginStorage;
             _providerRepository = providerRepository;
+            _invoiceService = invoiceService;
         }
 
         [HttpGet]
@@ -25,7 +31,7 @@ namespace InvoiceIssuer.Web.Controllers
             {
                 return RedirectToAction("Info", "Dashboard");
             }
-            
+
             return View();
         }
 
@@ -52,6 +58,23 @@ namespace InvoiceIssuer.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SearchInvoice([FromForm] LoginViewModel viewModel)
+        {
+            if (viewModel.InvoiceGuid.Length < 36)
+                return BadRequest("InvoiceGuid cannot be less than 36 characters");
+
+            var invoice = await _invoiceService.ReadInvoice(Guid.Parse(viewModel.InvoiceGuid));
+
+            if (invoice == null)
+            {
+                return new ContentResult { Content = "No invoices was found with the given GUID! " };
+            }
+            else
+            {   
+                return RedirectToAction("GetInvoice", "Invoices", new { invoiceGuid = invoice.Id });
+            }
+        }
         public IActionResult Privacy()
         {
             return View();

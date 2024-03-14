@@ -77,7 +77,7 @@ namespace InvoiceIssuer.Repository.Repositories
             }
         }
 
-        public async Task<TEntity> Read(Guid id)
+        public virtual async Task<TEntity> Read(Guid id)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace InvoiceIssuer.Repository.Repositories
             }
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public virtual async Task<TEntity> Update(TEntity entity)
         {
             try
             {

@@ -13,15 +13,43 @@
         <li><a target="_blank" asp-controller="Invoices" asp-action="GetInvoice"
                 asp-route-invoiceGuid="@Model.Invoice.Id" class="btn btn-primary btn-sm"><i class="fa fa-print"></i>
                 View Invoice</a></li>
-        <li><a class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</a></li>
-        <li><a class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a></li>
+
+        @if (@Model.Invoice.Date.Month == DateTime.Now.Month)
+        {
+            <li><a asp-controller="Invoices" asp-action="Update" asp-route-invoiceGuid="@Model.Invoice.Id"
+                class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</a>
+            </li>
+            <li>
+                <a class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
+            </li>
+        }
+        else if (@Model.Invoice.IsCanceled)
+        {
+            <div class="d-flex m-2">
+                <small class="text-red">This invoice was CANCELED!</small>
+            </div>
+        }
+        else
+        {
+            <li>
+                <button class="btn btn-primary btn-sm" disabled><i class="fas fa-edit"></i> Edit</button>
+            </li>
+            <li>
+                <button class="btn btn-danger btn-sm" disabled><i class="fas fa-trash-alt"></i> Delete</button>
+            </li>
+            <div class="d-flex m-2">
+                <small class="text-red">This invoice cannot be edited, due to legal date!</small>
+            </div>
+        }
+
     </ul>
     @* <div class="d-flex m-2">
         <small>The tax appliance of the invoice is applied after 3 days counting the issue date! After this you can't edit,
         only delete is permitted</small>
         </div> *@
     <div class="d-flex m-2">
-        <span>Invoice issued in - <b><i id="issuedDate">@Model.Invoice.Date</i></b></span>
+        <span>Invoice issued in - <b><i id="issuedDate">@Model.Invoice.Date -</i></b> Number: @Model.Invoice.Number /
+            @Model.Invoice.Date.Year</span>
     </div>
 </div>
 
@@ -46,10 +74,18 @@
         <form method="POST">
             <div class="tab-content">
 
+                @if (@Model.Invoice.IsCanceled)
+                {
+                    <div class="alert alert-danger">
+                        <h4 class="alert-heading">CANCELED!</h4>
+                        <p class="mb-0">This invoice is canceled and haven't any fiscal nor legal value!</p>
+                    </div>
+                }
+
                 <div id="taker" class="tab-pane active">
                     <h5>Taker Information</h5>
                     <hr>
-
+                    <input type="text" class="form-control" id="invoiceNumber" asp-for="Invoice.Number" hidden>
                     <div class="row">
                         <div class="col-3">
                             <div class="input-group input-group-sm mb-4">
@@ -57,7 +93,7 @@
                                     <span class="input-group-text">CI</span>
                                 </div>
                                 <input type="text" class="form-control" id="ci" asp-for="Taker.CI" maxlength="7"
-                                    asp-for="Taker.CI" readonly>
+                                    readonly>
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-primary" id="searchTakerBtn"
                                         onclick="getTakerData()"><i class="fas fa-search"></i></button>

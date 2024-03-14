@@ -1,4 +1,4 @@
-@model InvoiceIssuer.Web.ViewModels.InvoicesViewModel
+@model InvoiceIssuer.Domain.Entities.Invoice
 @{
     Layout = "_InvoicePreview";
 }
@@ -7,9 +7,9 @@
     <div class="invoice-content">
         <div class="invoice-preview-title">Service Invoice</div>
         <div class="invoice-id">
-            <div class="blue-text"><b>Invoice Number: @Model.Invoice.Number / @Model.Invoice.Date.Year</b></div>
-            <div>Date: @Model.Invoice.Date</div>
-            <div>GUID: @Model.Invoice.Id</div>
+            <div class="blue-text"><b>Invoice Number: @Model.Number / @Model.Date.Year</b></div>
+            <div>Date: @Model.Date</div>
+            <div>GUID: @Model.Id</div>
         </div>
         <div class="content-row">
             <div class="wrap-content">
@@ -62,11 +62,11 @@
         </div>
         <div class="service-content">
             <div class="content-row mt-4 mb-3">
-                <h5>Title: @Model.Invoice.Title</h5>
-                <h5>Service Type: @Model.Invoice.ServiceType.Name</h5>
+                <h5>Title: @Model.Title</h5>
+                <h5>Service Type: @Model.ServiceType.Name</h5>
             </div>
             <div class="service-description">
-                <p>@Model.Invoice.Description</p>
+                <p>@Model.Description</p>
             </div>
         </div>
         <div class="blue-title">
@@ -81,7 +81,7 @@
                         <div>Service price: </div>
                     </div>
                     <div>
-                        <div>@Model.Invoice.TotalValue.ToString("c2")</div>
+                        <div>@Model.TotalValue.ToString("c2")</div>
                     </div>
                 </div>
                 <div class="content-row">
@@ -89,7 +89,7 @@
                         <div>Tax Rate: </div>
                     </div>
                     <div>
-                        <div>%@Model.Invoice.TaxValue.ToString("f2")</div>
+                        <div>%@Model.TaxValue.ToString("f2")</div>
                     </div>
                 </div>
                 <hr />
@@ -98,7 +98,7 @@
                         <h5 class="blue-text"><b>Total:</b></h5>
                     </div>
                     <div>
-                        <h5 class="blue-text"><b>@Model.Invoice.TotalValue.ToString("c2")</b></h5>
+                        <h5 class="blue-text"><b>@Model.TotalValue.ToString("c2")</b></h5>
                     </div>
                 </div>
             </div>

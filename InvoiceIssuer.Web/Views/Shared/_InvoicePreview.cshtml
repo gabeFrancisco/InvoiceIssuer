@@ -1,4 +1,4 @@
-@inject InvoiceIssuer.Web.Sessions.LoginStorage session
+@inject InvoiceIssuer.Services.Sessions.LoginStorage session
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +19,26 @@
         <nav
             class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light invoice-nav shadow mb-3 border-bottom bg-light">
             <div class="text-center">
-                <button class="btn btn-primary btn-sm ml-2" type='button'
-                    onclick="window.print();return false;">Print</button>
+                @if (@session.GetProvider() != null)
+                {
+                    <a class="btn btn-dark btn-sm ml-2" asp-action="List" asp-controller="Invoices">Back</a>
+                }
+                else
+                {
+                    <a class="btn btn-dark btn-sm ml-2" asp-action="Index" asp-controller="Home">Back</a>
+                }
+                <button class="btn btn-primary btn-sm ml-2" type='button' onclick="window.print();return false;">
+                    Print
+                </button>
             </div>
-            <span class="text-dark">@session.GetProvider().ComercialName</span>
+            @if (@session.GetProvider() != null)
+            {
+                <span class="text-dark">@session.GetProvider().ComercialName</span>
+            }
+            else
+            {
+                <span class="text-dark">Welcome visitor!</span>
+            }
             </div>
         </nav>
     </header>

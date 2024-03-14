@@ -147,7 +147,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Company Type</span>
                                 </div>
-                                <select class="form-select" id="companySelect" asp-for="CompanyType">
+                                <select class="form-select" id="companySelect" asp-for="Taker.CompanyType.Name">
                                     @foreach (var companyType in Model.CompanyTypes)
                                     {
                                         <option id="companyType">@companyType.Name</option>
@@ -167,7 +167,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Title</span>
                                 </div>
-                                <input type="text" class="form-control" id="title" asp-for="Title">
+                                <input type="text" class="form-control" id="title" asp-for="Invoice.Title">
                             </div>
                         </div>
                         <div class="col-5">
@@ -175,7 +175,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Service Type</span>
                                 </div>
-                                <select class="form-select" id="serviceSelect" asp-for="ServiceType">
+                                <select class="form-select" id="serviceSelect" asp-for="Invoice.ServiceType.Name">
                                     @foreach (var serviceType in Model.ServiceTypes)
                                     {
                                         <option id="serviceType">@serviceType.Name</option>
@@ -188,7 +188,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Invoice Date</span>
                                 </div>
-                                <input type="date" class="form-control" id="invoiceDate" asp-for="Date" readonly>
+                                <input type="date" class="form-control" id="invoiceDate" asp-for="Invoice.Date" readonly>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dateRadio"
@@ -212,7 +212,7 @@
                                 <div class="input-group">
                                     <span class="input-group-text">Description</span>
                                 </div>
-                                <textarea class="form-control" id="description" asp-for="Description"
+                                <textarea class="form-control" id="description" asp-for="Invoice.Description"
                                     rows="7"></textarea>
                             </div>
                         </div>
@@ -229,14 +229,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Price</span>
                                 </div>
-                                <input type="text" class="form-control" id="price" asp-for="Price">
+                                <input type="text" class="form-control" id="price" asp-for="Invoice.TotalValue">
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <div class="d-grid gap-4 mt-4">
-                    <button class="btn btn-lg btn-primary" type="submit"><b>Issue!</b></button>
+                    <button class="btn btn-lg btn-primary" type="submit"><b>Submit</b></button>
                 </div>
             </div>
         </form>

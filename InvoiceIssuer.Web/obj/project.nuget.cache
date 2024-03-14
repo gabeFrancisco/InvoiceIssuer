@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "lSoHvC4zxbcSH2X8S2SDoR/Fe+0BpbvJIr0l7nBqHlp6VWad8ljyjuA5ylQnG+fbI5sNGDin4HipiqiW7u8tzw==",
+  "dgSpecHash": "lCSngSvoID+hHLUPST5DUWgG6MVcueTtwIMASb/iCW+Ie0S8/UwlvzqR15Ay06nlEPTmdKr+Pu6zVm1fYxMrwg==",
   "success": true,
   "projectFilePath": "/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Web/InvoiceIssuer.Web.csproj",
   "expectedPackageFiles": [
     "/home/gabeFrank/.nuget/packages/castle.core/4.4.0/castle.core.4.4.0.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.aspnetcore.http/2.2.2/microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.aspnetcore.http.extensions/2.2.0/microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.aspnetcore.http.features/3.1.21/microsoft.aspnetcore.http.features.3.1.21.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.aspnetcore.jsonpatch/3.1.20/microsoft.aspnetcore.jsonpatch.3.1.20.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/3.1.20/microsoft.aspnetcore.mvc.newtonsoftjson.3.1.20.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.aspnetcore.webutilities/2.2.0/microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.bcl.hashcode/1.1.1/microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -23,10 +28,13 @@
     "/home/gabeFrank/.nuget/packages/microsoft.extensions.configuration.binder/3.1.17/microsoft.extensions.configuration.binder.3.1.17.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.17/microsoft.extensions.dependencyinjection.3.1.17.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.17/microsoft.extensions.dependencyinjection.abstractions.3.1.17.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.extensions.fileproviders.abstractions/2.2.0/microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.extensions.logging/3.1.17/microsoft.extensions.logging.3.1.17.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.17/microsoft.extensions.logging.abstractions.3.1.17.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.extensions.objectpool/2.2.0/microsoft.extensions.objectpool.2.2.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.extensions.options/3.1.17/microsoft.extensions.options.3.1.17.nupkg.sha512",
-    "/home/gabeFrank/.nuget/packages/microsoft.extensions.primitives/3.1.17/microsoft.extensions.primitives.3.1.17.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.extensions.primitives/3.1.21/microsoft.extensions.primitives.3.1.21.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/microsoft.net.http.headers/2.2.0/microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg.sha512",
@@ -53,7 +61,7 @@
     "/home/gabeFrank/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg.sha512",
-    "/home/gabeFrank/.nuget/packages/system.buffers/4.3.0/system.buffers.4.3.0.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.collections.concurrent/4.3.0/system.collections.concurrent.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.collections.immutable/1.7.1/system.collections.immutable.1.7.1.nupkg.sha512",
@@ -78,6 +86,7 @@
     "/home/gabeFrank/.nuget/packages/system.io.compression.zipfile/4.3.0/system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.io.filesystem/4.3.0/system.io.filesystem.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.io.filesystem.primitives/4.3.0/system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/system.io.pipelines/4.7.4/system.io.pipelines.4.7.4.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.linq/4.3.0/system.linq.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.linq.expressions/4.3.0/system.linq.expressions.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.net.http/4.3.0/system.net.http.4.3.0.nupkg.sha512",
@@ -107,6 +116,7 @@
     "/home/gabeFrank/.nuget/packages/system.security.cryptography.x509certificates/4.3.0/system.security.cryptography.x509certificates.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.text.encoding.extensions/4.3.0/system.text.encoding.extensions.4.3.0.nupkg.sha512",
+    "/home/gabeFrank/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.text.regularexpressions/4.3.0/system.text.regularexpressions.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.threading/4.3.0/system.threading.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
@@ -116,5 +126,12 @@
     "/home/gabeFrank/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/home/gabeFrank/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache /home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Web/obj/project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

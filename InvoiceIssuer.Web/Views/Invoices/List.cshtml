@@ -27,16 +27,43 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var invoice in Model.Invoices.OrderBy(model => model.Number))
+		@foreach (var invoice in Model.Invoices.OrderByDescending(model => model.Number))
 		{
-			<tr onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
-				<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
-				</td>
-				<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
-				<td>@Html.DisplayFor(model => invoice.Title)</td>
-				<td>@Html.DisplayFor(model => invoice.Date)</td>
-				<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
-			</tr>
+			@if (invoice.Date.Month == DateTime.Now.Month && !invoice.IsCanceled)
+			{
+				<tr class="tr-green"
+			onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
+					<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
+					</td>
+					<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
+					<td>@Html.DisplayFor(model => invoice.Title)</td>
+					<td>@Html.DisplayFor(model => invoice.Date)</td>
+					<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
+				</tr>
+			}
+			@if (invoice.IsCanceled)
+			{
+				<tr class="tr-red"
+			onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
+					<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
+					</td>
+					<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
+					<td>@Html.DisplayFor(model => invoice.Title)</td>
+					<td>@Html.DisplayFor(model => invoice.Date)</td>
+					<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
+				</tr>
+			}
+			@if(invoice.Date.Month != DateTime.Now.Month && !invoice.IsCanceled)
+			{
+				<tr onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
+					<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
+					</td>
+					<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
+					<td>@Html.DisplayFor(model => invoice.Title)</td>
+					<td>@Html.DisplayFor(model => invoice.Date)</td>
+					<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
+				</tr>
+			}
 		}
 	</tbody>
 
