@@ -13,8 +13,12 @@
         <li><a target="_blank" asp-controller="Invoices" asp-action="GetInvoice"
                 asp-route-invoiceGuid="@Model.Invoice.Id" class="btn btn-primary btn-sm"><i class="fa fa-print"></i>
                 View Invoice</a></li>
+        
+        @{
+            TimeSpan ts = DateTime.Now - @Model.Invoice.Date;
+        }
 
-        @if (@Model.Invoice.Date.Month == DateTime.Now.Month)
+        @if (ts.TotalDays < 30)
         {
             <li><a asp-controller="Invoices" asp-action="Update" asp-route-invoiceGuid="@Model.Invoice.Id"
                 class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</a>

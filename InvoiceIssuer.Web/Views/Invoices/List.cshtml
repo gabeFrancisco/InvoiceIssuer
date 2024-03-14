@@ -27,12 +27,15 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var invoice in Model.Invoices.OrderByDescending(model => model.Number))
+		@foreach (var invoice in Model.Invoices.OrderByDescending(model => model.Date))
 		{
-			@if (invoice.Date.Month == DateTime.Now.Month && !invoice.IsCanceled)
+
+			TimeSpan ts = DateTime.Now - invoice.Date;
+
+			@if (ts.TotalDays < 30 && !invoice.IsCanceled)
 			{
 				<tr class="tr-green"
-			onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
+					onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
 					<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
 					</td>
 					<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
@@ -44,7 +47,7 @@
 			@if (invoice.IsCanceled)
 			{
 				<tr class="tr-red"
-			onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
+					onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
 					<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
 					</td>
 					<td>@Html.DisplayFor(model => invoice.Taker.ComercialName)</td>
@@ -53,7 +56,7 @@
 					<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
 				</tr>
 			}
-			@if(invoice.Date.Month != DateTime.Now.Month && !invoice.IsCanceled)
+			@if (ts.TotalDays > 30 && !invoice.IsCanceled)
 			{
 				<tr onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
 					<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
