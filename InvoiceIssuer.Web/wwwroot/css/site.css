@@ -234,6 +234,10 @@ tr:hover {
     background-color: #fcd5d5;
 }
 
+.tr-blue {
+    background-color: #d5d8fc;
+}
+
 tbody tr:hover {
     background-color: #aacef6;
 }

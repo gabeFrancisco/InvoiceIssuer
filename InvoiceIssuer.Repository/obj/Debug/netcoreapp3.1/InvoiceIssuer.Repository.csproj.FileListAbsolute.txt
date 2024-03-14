@@ -43,18 +43,3 @@ G:/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/I
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.dll
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.pdb
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.genruntimeconfig.cache
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/bin/Debug/netcoreapp3.1/InvoiceIssuer.Repository.deps.json
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/bin/Debug/netcoreapp3.1/InvoiceIssuer.Repository.runtimeconfig.json
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/bin/Debug/netcoreapp3.1/InvoiceIssuer.Repository.runtimeconfig.dev.json
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/bin/Debug/netcoreapp3.1/InvoiceIssuer.Repository.dll
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/bin/Debug/netcoreapp3.1/InvoiceIssuer.Repository.pdb
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/bin/Debug/netcoreapp3.1/InvoiceIssuer.Domain.dll
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/bin/Debug/netcoreapp3.1/InvoiceIssuer.Domain.pdb
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.csprojAssemblyReference.cache
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.AssemblyInfoInputs.cache
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.AssemblyInfo.cs
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.csproj.CoreCompileInputs.cache
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.csproj.CopyComplete
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.dll
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.pdb
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Repository/obj/Debug/netcoreapp3.1/InvoiceIssuer.Repository.genruntimeconfig.cache

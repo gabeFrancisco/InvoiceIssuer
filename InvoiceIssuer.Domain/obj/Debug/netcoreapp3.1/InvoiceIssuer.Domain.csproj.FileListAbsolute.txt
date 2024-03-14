@@ -25,12 +25,3 @@ G:/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/Invoi
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.csproj.CoreCompileInputs.cache
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.dll
 /mnt/76AAE8F7AAE8B531/ASP.Net Core/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.pdb
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/bin/Debug/netcoreapp3.1/InvoiceIssuer.Domain.deps.json
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/bin/Debug/netcoreapp3.1/InvoiceIssuer.Domain.dll
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/bin/Debug/netcoreapp3.1/InvoiceIssuer.Domain.pdb
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.csprojAssemblyReference.cache
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.AssemblyInfoInputs.cache
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.AssemblyInfo.cs
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.csproj.CoreCompileInputs.cache
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.dll
-/home/gabeFrank/Área de trabalho/GENESIS/InvoiceIssuer/InvoiceIssuer.Domain/obj/Debug/netcoreapp3.1/InvoiceIssuer.Domain.pdb

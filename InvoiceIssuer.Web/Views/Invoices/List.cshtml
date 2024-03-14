@@ -29,7 +29,7 @@
 	<tbody>
 		@foreach (var invoice in Model.Invoices.OrderByDescending(model => model.Number))
 		{
-			@if (invoice.IsEditable)
+			@if (invoice.Date.Month == DateTime.Now.Month && !invoice.IsCanceled)
 			{
 				<tr class="tr-green"
 			onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
@@ -53,7 +53,7 @@
 					<td>$@Html.DisplayFor(model => invoice.TotalValue)</td>
 				</tr>
 			}
-			@if(!invoice.IsEditable && !invoice.IsCanceled)
+			@if(invoice.Date.Month != DateTime.Now.Month && !invoice.IsCanceled)
 			{
 				<tr onclick="location.href = '@(Url.Action("Invoice", "Invoices", new { invoiceGuid = invoice.Id }))'">
 					<td scope="row">@Html.DisplayFor(model => invoice.Number) / @Html.DisplayFor(model => invoice.Date.Year)
